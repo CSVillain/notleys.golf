@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Notleys</title>
-  <meta name="theme-color" content="#0d0f11" id="theme-color-meta" />
+  <meta name="theme-color" content="#f6f2eb" id="theme-color-meta" />
   <meta name="description"
     content="The Notleys is an 18-hole, par 71 parkland course in the River Brain valley with online booking and up-to-date club status." />
   <script>
     (() => {
       const savedTheme = localStorage.getItem("notleys-theme");
-      document.documentElement.dataset.theme = savedTheme || "dark";
+      document.documentElement.dataset.theme = savedTheme || "light";
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +31,7 @@
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#updates">Updates</a>
+        <a href="course.html">Course</a>
         <a href="#golf">Golf</a>
         <a href="#visitors-membership">Visitors</a>
         <a href="#facilities">Facilities</a>
@@ -81,6 +82,7 @@
       <div class="container site-menu-inner">
         <nav class="site-menu-nav" aria-label="Mobile">
           <a href="#updates">Updates</a>
+          <a href="course.html">Course</a>
           <a href="#golf">Golf</a>
           <a href="#visitors-membership">Visitors</a>
           <a href="#facilities">Facilities</a>
@@ -148,6 +150,15 @@
                   </svg>
                 </span>
               </a>
+              <a class="button button-secondary" href="course.html">
+                <span class="button-label">Explore the Course</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </a>
             </div>
           </div>
           <aside id="club-status" class="hero-status" aria-live="polite">
@@ -198,10 +209,18 @@
               <span>River Brain valley setting</span>
             </div>
           </div>
+          <a class="text-link course-link" href="course.html">Explore the full course guide
+            <span class="text-link-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
         </div>
         <div class="course-image-wrap">
-          <img src="images/notleys-frost-hero.jpeg" alt="Morning view across the course at The Notleys" width="2048"
-            height="1536" loading="lazy" />
+          <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-At-The-Notleys-01.jpg"
+            alt="Panoramic view across The Notleys course" width="640" height="365" loading="lazy" />
         </div>
       </div>
     </section>
@@ -213,8 +232,8 @@
         </div>
         <div class="facts-grid">
           <article class="highlight-card highlight-card-wide">
-            <img src="images/notleys-valley-fairway.jpeg"
-              alt="Wide fairway view under dramatic cloud cover at The Notleys" width="2048" height="1536"
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-01.jpg"
+              alt="Wide valley fairway view at The Notleys" width="1024" height="683"
               loading="lazy" />
             <div class="highlight-copy">
               <h3>Valley views</h3>
@@ -222,8 +241,8 @@
             </div>
           </article>
           <article class="highlight-card">
-            <img src="images/notleys-green-approach.jpeg"
-              alt="Green complex and closely cut approach area at The Notleys" width="2048" height="1536"
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Blurb-Image-01.jpg"
+              alt="Approach shot view into a green at The Notleys" width="640" height="365"
               loading="lazy" />
             <div class="highlight-copy">
               <h3>Approach play</h3>
@@ -231,8 +250,8 @@
             </div>
           </article>
           <article class="highlight-card">
-            <img src="images/notleys-evening-bag-view.jpeg"
-              alt="Golf bag beside the course in late evening light at The Notleys" width="2048" height="1536"
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-02.jpg"
+              alt="Late-round course light at The Notleys" width="1024" height="683"
               loading="lazy" />
             <div class="highlight-copy">
               <h3>Playable pace</h3>
@@ -293,32 +312,32 @@
         </div>
         <div class="facilities-grid">
           <article class="facility-item">
-            <img src="images/notleys-sunny-course-view.jpg" alt="Practice ground and course space at The Notleys"
-              width="2555" height="1916" loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/golf-driving-range-braintree-witham.jpg"
+              alt="Driving range at The Notleys Golf Club" width="640" height="365" loading="lazy" />
             <div class="facility-copy">
               <h3>Driving range</h3>
               <p>Warm-up and practice space before the round.</p>
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-green-approach.jpeg" alt="Short game practice area near the green at The Notleys"
-              width="2048" height="1536" loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Chipping-Practice-Green-01.jpg"
+              alt="Chipping practice area at The Notleys" width="1600" height="759" loading="lazy" />
             <div class="facility-copy">
               <h3>Chipping green</h3>
               <p>Dedicated short-game work close to the clubhouse side.</p>
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-putting-green.jpeg" alt="Putting surface at The Notleys" width="1536" height="2048"
-              loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Practice-Putting-Green-01.jpg"
+              alt="Putting green at The Notleys" width="1600" height="759" loading="lazy" />
             <div class="facility-copy">
               <h3>Putting green</h3>
               <p>A simple space for pace control and pre-round routines.</p>
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-coaching-practice.jpeg" alt="Golf instruction setting at The Notleys" width="1536"
-              height="2048" loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/golf-lessons-at-the-notleys-1.jpg"
+              alt="Golf coaching area at The Notleys" width="640" height="365" loading="lazy" />
             <div class="facility-copy">
               <h3>Coaching</h3>
               <p>Support for improving golfers and regular practice sessions.</p>
@@ -348,7 +367,7 @@
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="section-kicker">Contact</p>
-          <h2>Plan a round or ask the club</h2>
+          <h2>Get in Touch</h2>
           <p class="contact-lead">
             Use the form for general enquiries, visitor questions, or membership interest. For tee times, booking
             online remains the quickest route.
@@ -411,6 +430,7 @@
         <p><a href="mailto:thenotleysgc@gmail.com">thenotleysgc@gmail.com</a></p>
       </div>
       <div>
+        <p><a href="course.html">Course Guide</a></p>
         <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
       </div>
     </div>

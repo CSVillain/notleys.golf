@@ -31,7 +31,7 @@ const applyTheme = (theme) => {
 };
 
 const initialiseTheme = () => {
-  const savedTheme = localStorage.getItem("notleys-theme") || "dark";
+  const savedTheme = localStorage.getItem("notleys-theme") || "light";
   applyTheme(savedTheme);
 
   if (!themeToggles.length) {

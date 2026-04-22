@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Guide | The Notleys</title>
+  <meta name="theme-color" content="#f6f2eb" id="theme-color-meta" />
+  <meta name="description"
+    content="Explore The Notleys course guide with course overview, map, scorecard, and hole-by-hole imagery." />
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("notleys-theme");
+      document.documentElement.dataset.theme = savedTheme || "light";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="site-brand" href="index.html#top" aria-label="The Notleys home">
+        <img src="assets/images/notleys-peacock-logo.png" alt="The Notleys Golf Club" width="1549" height="638" />
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#updates">Updates</a>
+        <a href="course.html">Course</a>
+        <a href="index.html#golf">Golf</a>
+        <a href="index.html#visitors-membership">Visitors</a>
+        <a href="index.html#facilities">Facilities</a>
+        <a href="index.html#contact-section">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle theme-toggle-desktop" data-theme-toggle type="button" aria-pressed="true"
+          aria-label="Switch to light mode" title="Switch to light mode">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-thumb">
+              <span class="theme-toggle-icon theme-toggle-icon-sun">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3.5" />
+                  <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                </svg>
+              </span>
+              <span class="theme-toggle-icon theme-toggle-icon-moon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </button>
+        <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+          <span class="button-label">Book a Tee Time</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M7 2v4M17 2v4M4 9h16" />
+              <rect x="4" y="5" width="16" height="15" rx="2" />
+            </svg>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-toggle-label">Menu</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="container site-menu-inner">
+        <nav class="site-menu-nav" aria-label="Mobile">
+          <a href="index.html#updates">Updates</a>
+          <a href="course.html">Course</a>
+          <a href="index.html#golf">Golf</a>
+          <a href="index.html#visitors-membership">Visitors</a>
+          <a href="index.html#facilities">Facilities</a>
+          <a href="index.html#contact-section">Contact</a>
+        </nav>
+        <div class="site-menu-utility">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true"
+            aria-label="Switch to light mode" title="Switch to light mode">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb">
+                <span class="theme-toggle-icon theme-toggle-icon-sun">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3.5" />
+                    <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                  </svg>
+                </span>
+                <span class="theme-toggle-icon theme-toggle-icon-moon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero page-hero-course">
+      <img class="page-hero-image" src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-01.jpg"
+        alt="Course panorama across The Notleys Golf Club" width="1024" height="683" fetchpriority="high"
+        decoding="async" />
+      <div class="page-hero-overlay"></div>
+      <div class="container page-hero-inner">
+        <p class="page-hero-kicker">Course Guide</p>
+        <h1>The River Brain valley in one round</h1>
+        <p class="page-hero-copy">
+          The Notleys is an 18-hole, par 71 parkland course with open views, steady elevation changes, and a routing
+          that stays enjoyable for regular players and first-time visitors alike.
+        </p>
+        <div class="page-hero-actions">
+          <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+            <span class="button-label">Book a Tee Time</span>
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M7 2v4M17 2v4M4 9h16" />
+                <rect x="4" y="5" width="16" height="15" rx="2" />
+              </svg>
+            </span>
+          </a>
+          <a class="button button-secondary" href="index.html#golf">
+            <span class="button-label">Back to Homepage</span>
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M11 6l-6 6 6 6" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container course-grid">
+        <div class="course-copy">
+          <h2>Course Overview</h2>
+          <p>
+            Set in the valley of the River Brain, the layout combines broad views with a sequence of holes that rise,
+            fall, and turn enough to stay interesting across the full round. It is approachable from the tee, but still
+            asks for tidy approaches and solid distance control into the greens.
+          </p>
+          <div class="course-facts-inline">
+            <div class="course-fact">
+              <strong>18 holes</strong>
+              <span>Parkland routing</span>
+            </div>
+            <div class="course-fact">
+              <strong>Par 71</strong>
+              <span>Playable for visitors and members</span>
+            </div>
+            <div class="course-fact">
+              <strong>6,116 yards</strong>
+              <span>Valley setting with elevation change</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-image-wrap">
+          <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-At-The-Notleys-01.jpg"
+            alt="Course overview at The Notleys" width="640" height="365" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-head">
+          <h2>Map and Card</h2>
+        </div>
+        <div class="course-reference-grid">
+          <article class="course-reference">
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Course-Map-01.png"
+              alt="Illustrated course map for The Notleys Golf Club" width="1800" height="1719" loading="lazy" />
+            <div class="course-reference-copy">
+              <h3>Course map</h3>
+              <p>Use the map to understand the full routing before you play, including the sequence of holes and the
+                overall movement through the valley.</p>
+            </div>
+          </article>
+          <article class="course-reference course-reference-tall">
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/The-Notleys-Scorecard-02.jpg"
+              alt="Scorecard for The Notleys Golf Club" width="787" height="1510" loading="lazy" />
+            <div class="course-reference-copy">
+              <h3>Scorecard</h3>
+              <p>Check the card before arrival for hole progression, yardage context, and a clearer picture of how the
+                back nine compares with the outward stretch.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-facts">
+      <div class="container">
+        <div class="section-head">
+          <h2>Hole-by-Hole</h2>
+        </div>
+        <div class="hole-gallery">
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-1.jpg" alt="Hole 1 at The Notleys Golf Club" width="740" height="921" /><h3>Hole 1</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-2.jpg" alt="Hole 2 at The Notleys Golf Club" width="635" height="786" /><h3>Hole 2</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-3.jpg" alt="Hole 3 at The Notleys Golf Club" width="814" height="1013" /><h3>Hole 3</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-4.jpg" alt="Hole 4 at The Notleys Golf Club" width="675" height="827" /><h3>Hole 4</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-5.jpg" alt="Hole 5 at The Notleys Golf Club" width="793" height="984" /><h3>Hole 5</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-6.jpg" alt="Hole 6 at The Notleys Golf Club" width="799" height="996" /><h3>Hole 6</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-7.jpg" alt="Hole 7 at The Notleys Golf Club" width="769" height="958" /><h3>Hole 7</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-8.jpg" alt="Hole 8 at The Notleys Golf Club" width="777" height="967" /><h3>Hole 8</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-9.jpg" alt="Hole 9 at The Notleys Golf Club" width="859" height="1069" /><h3>Hole 9</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-10.jpg" alt="Hole 10 at The Notleys Golf Club" width="747" height="1044" /><h3>Hole 10</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-11.jpg" alt="Hole 11 at The Notleys Golf Club" width="828" height="1032" /><h3>Hole 11</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-12.jpg" alt="Hole 12 at The Notleys Golf Club" width="859" height="1069" /><h3>Hole 12</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-13.jpg" alt="Hole 13 at The Notleys Golf Club" width="769" height="1123" /><h3>Hole 13</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-14.jpg" alt="Hole 14 at The Notleys Golf Club" width="774" height="965" /><h3>Hole 14</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-15.jpg" alt="Hole 15 at The Notleys Golf Club" width="752" height="937" /><h3>Hole 15</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-16.jpg" alt="Hole 16 at The Notleys Golf Club" width="838" height="1043" /><h3>Hole 16</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-17.jpg" alt="Hole 17 at The Notleys Golf Club" width="783" height="974" /><h3>Hole 17</h3></article>
+          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-18.jpg" alt="Hole 18 at The Notleys Golf Club" width="868" height="1080" /><h3>Hole 18</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container course-endcap">
+        <div class="course-endcap-copy">
+          <p class="section-kicker">Plan your round</p>
+          <h2>See the shape of the course before you arrive</h2>
+          <p>
+            Between the map, the card, and the full hole sequence, this page gives visitors a clearer feel for the
+            layout before they book. For availability and live playing conditions, return to the homepage or go
+            straight to online booking.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+              <span class="button-label">Book a Tee Time</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M7 2v4M17 2v4M4 9h16" />
+                  <rect x="4" y="5" width="16" height="15" rx="2" />
+                </svg>
+              </span>
+            </a>
+            <a class="button button-secondary" href="index.html#contact-section">
+              <span class="button-label">Ask a Question</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="course-endcap-media">
+          <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-02.jpg"
+            alt="Course landscape in late light at The Notleys" width="1024" height="683" loading="lazy" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2>The Notleys</h2>
+        <p>Witham Road, White Notley, Witham CM8 1ST</p>
+      </div>
+      <div>
+        <p>01376 329 328</p>
+        <p><a href="mailto:thenotleysgc@gmail.com">thenotleysgc@gmail.com</a></p>
+      </div>
+      <div>
+        <p><a href="index.html">Homepage</a></p>
+        <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/main.js"></script>
+</body>
+
+</html>

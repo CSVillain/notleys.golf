@@ -12,5 +12,6 @@ node_modules/
 
 # Review artifacts
 /artifacts/
+/scraped-assets/
 /*.png
 Uncodixfy.md

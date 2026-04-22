@@ -754,6 +754,10 @@ p {
   margin-top: var(--space-8);
 }
 
+.course-link {
+  margin-top: var(--space-8);
+}
+
 .course-fact {
   min-width: 10rem;
   padding-top: var(--space-5);
@@ -905,6 +909,161 @@ p {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.55;
+}
+
+.page-hero {
+  position: relative;
+  min-height: max(42rem, calc(100svh - var(--header-height)));
+  display: grid;
+  align-items: end;
+  background: var(--bg-dark);
+}
+
+.page-hero-image,
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(7, 14, 11, 0.12) 0%, rgba(7, 14, 11, 0.18) 42%, rgba(7, 14, 11, 0.68) 100%),
+    linear-gradient(90deg, rgba(7, 14, 11, 0.64) 0%, rgba(7, 14, 11, 0.12) 58%, rgba(7, 14, 11, 0.02) 100%);
+}
+
+:root[data-theme="light"] .page-hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(18, 36, 29, 0.08) 0%, rgba(18, 36, 29, 0.12) 44%, rgba(18, 36, 29, 0.52) 100%),
+    linear-gradient(90deg, rgba(18, 36, 29, 0.52) 0%, rgba(18, 36, 29, 0.08) 56%, rgba(18, 36, 29, 0.02) 100%);
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(7rem, 16vw, 11rem) 0 clamp(3rem, 8vw, 5rem);
+  color: #fff;
+}
+
+.page-hero-kicker {
+  margin-bottom: var(--space-4);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.page-hero h1 {
+  max-width: 11ch;
+  margin-bottom: var(--space-5);
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 8vw, 6.3rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.page-hero-copy {
+  max-width: 33rem;
+  margin-bottom: var(--space-8);
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.page-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.course-reference-grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.course-reference {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.course-reference img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.course-reference-tall img {
+  max-height: 42rem;
+  object-fit: contain;
+}
+
+.course-reference-copy h3,
+.hole-card h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+}
+
+.course-reference-copy p {
+  max-width: 32rem;
+  color: var(--text-muted);
+  line-height: 1.68;
+}
+
+.hole-gallery {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.hole-card {
+  min-width: 0;
+}
+
+.hole-card img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-sm);
+}
+
+.hole-card h3 {
+  margin-top: 0.85rem;
+}
+
+.course-endcap {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.course-endcap-copy h2 {
+  font-family: var(--font-display);
+  font-size: var(--size-h2);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.course-endcap-copy p:not(.section-kicker) {
+  max-width: 32rem;
+  margin: var(--space-5) 0 var(--space-8);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.course-endcap-media img {
+  width: 100%;
+  min-height: 22rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
 }
 
 .contact-grid {
@@ -1064,6 +1223,11 @@ p {
     align-items: start;
   }
 
+  .course-reference-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    align-items: start;
+  }
+
   .facts-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
@@ -1085,6 +1249,14 @@ p {
   .facilities-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: var(--space-8);
+  }
+
+  .hole-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .course-endcap {
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 34rem);
   }
 
   .contact-grid {
@@ -1157,6 +1329,28 @@ p {
     margin-right: 0;
     margin-bottom: 0;
     padding-top: 0;
+  }
+
+  .page-hero {
+    min-height: 34rem;
+  }
+
+  .page-hero-inner {
+    padding-top: calc(var(--header-height) + 4.5rem);
+  }
+
+  .page-hero h1 {
+    max-width: 10ch;
+    font-size: clamp(2.8rem, 12vw, 4.3rem);
+  }
+
+  .page-hero-copy {
+    max-width: 26rem;
+    font-size: 0.98rem;
+  }
+
+  .hole-card img {
+    height: 17rem;
   }
 
   .split-panel {
