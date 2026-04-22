@@ -1,0 +1,19 @@
+{
+  "status": "Open",
+  "carryOnly": "No",
+  "trolleysAllowed": "Yes",
+  "buggiesAllowed": "Yes",
+  "temporaryGreens": "No",
+  "teeOffMats": "No",
+  "note": "Course open, no restrictions. Please follow all local guidelines and respect other players.",
+  "lastUpdated": "21 April 2026 at 08:15",
+  "bookingWindow": {
+    "monday": { "open": "08:00", "close": "19:30" },
+    "tuesday": { "open": "08:00", "close": "19:30" },
+    "wednesday": { "open": "08:00", "close": "19:30" },
+    "thursday": { "open": "08:00", "close": "19:30" },
+    "friday": { "open": "08:00", "close": "19:30" },
+    "saturday": { "open": "07:30", "close": "18:00" },
+    "sunday": { "open": "07:30", "close": "18:00" }
+  }
+}
