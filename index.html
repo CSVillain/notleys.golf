@@ -19,6 +19,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
@@ -27,7 +28,11 @@
   <header class="site-header">
     <div class="container header-row">
       <a class="site-brand" href="#top" aria-label="The Notleys home">
-        <img src="assets/images/notleys-peacock-logo.png" alt="The Notleys Golf Club" width="1549" height="638" />
+        <img class="site-brand-mark site-brand-mark-full" src="assets/images/badge-full.svg" alt="" width="400"
+          height="400" aria-hidden="true" />
+        <img class="site-brand-mark site-brand-mark-simple" src="assets/images/avatar.svg" alt="" width="200"
+          height="200" aria-hidden="true" />
+        <span class="site-brand-text">The Notleys</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#updates">Updates</a>
@@ -116,10 +121,12 @@
 
   <main id="main-content">
     <section class="hero">
-      <img class="hero-image hero-image-dark" src="images/notleys-frost-hero.jpeg"
-        alt="View across The Notleys golf course" width="2048" height="1536" fetchpriority="high" decoding="async" />
-      <img class="hero-image hero-image-light" src="images/notleys-sunny-course-view.jpg"
-        alt="View across The Notleys golf course" width="2555" height="1916" decoding="async" />
+      <picture class="hero-picture">
+        <source srcset="images/notleys-sunny-course-view-900.webp 900w, images/notleys-sunny-course-view-1800.webp 1800w"
+          sizes="100vw" type="image/webp" />
+        <img class="hero-image" src="images/notleys-sunny-course-view.jpg"
+          alt="View across The Notleys golf course" width="2555" height="1916" fetchpriority="high" decoding="async" />
+      </picture>
       <div class="hero-overlay"></div>
       <div class="container hero-layout">
         <div class="hero-grid">
@@ -225,39 +232,22 @@
       </div>
     </section>
 
-    <section class="section section-facts">
-      <div class="container">
-        <div class="section-head">
-          <h2>Course Highlights</h2>
+    <section class="section buggy-section">
+      <div class="container buggy-grid">
+        <div class="buggy-copy">
+          <p class="section-kicker">Buggy Hire</p>
+          <h2>Comfortable access around the course</h2>
+          <p>
+            Buggies are available for hire when course conditions allow. Check the daily course status or speak to the
+            club before travelling if buggy access is essential for your round.
+          </p>
         </div>
-        <div class="facts-grid">
-          <article class="highlight-card highlight-card-wide">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-01.jpg"
-              alt="Wide valley fairway view at The Notleys" width="1024" height="683"
-              loading="lazy" />
-            <div class="highlight-copy">
-              <h3>Valley views</h3>
-              <p>Open holes and long sightlines give the round a clear, spacious feel.</p>
-            </div>
-          </article>
-          <article class="highlight-card">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Blurb-Image-01.jpg"
-              alt="Approach shot view into a green at The Notleys" width="640" height="365"
-              loading="lazy" />
-            <div class="highlight-copy">
-              <h3>Approach play</h3>
-              <p>Well-shaped greens and run-off areas reward tidy distances and touch.</p>
-            </div>
-          </article>
-          <article class="highlight-card">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-02.jpg"
-              alt="Late-round course light at The Notleys" width="1024" height="683"
-              loading="lazy" />
-            <div class="highlight-copy">
-              <h3>Playable pace</h3>
-              <p>Clear routing and practical yardage make it enjoyable for regular rounds.</p>
-            </div>
-          </article>
+        <div class="buggy-image-wrap">
+          <picture>
+            <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
+            <img src="images/wide-2026_buggies.jpg" alt="Golf buggies lined up at The Notleys Golf Club" width="7050"
+              height="3965" loading="lazy" />
+          </picture>
         </div>
       </div>
     </section>
@@ -265,8 +255,11 @@
     <section id="visitors-membership" class="section">
       <div class="container split-grid">
         <article class="split-panel split-panel-image">
-          <img src="images/notleys-visitor-fairway.jpg" alt="Fairway view for visitor play at The Notleys" width="2555"
-            height="1916" loading="lazy" />
+          <picture>
+            <source srcset="images/notleys-visitor-fairway-1200.webp" type="image/webp" />
+            <img src="images/notleys-visitor-fairway.jpg" alt="Fairway view for visitor play at The Notleys"
+              width="2555" height="1916" loading="lazy" />
+          </picture>
           <div class="split-panel-copy">
             <h2>Visitors</h2>
             <p>
@@ -284,8 +277,11 @@
           </div>
         </article>
         <article class="split-panel split-panel-image">
-          <img src="images/notleys-frost-hero.jpeg" alt="Early morning round setting at The Notleys" width="2048"
-            height="1536" loading="lazy" />
+          <picture>
+            <source srcset="images/notleys-frost-hero-1200.webp" type="image/webp" />
+            <img src="images/notleys-frost-hero.jpeg" alt="Early morning round setting at The Notleys" width="2048"
+              height="1536" loading="lazy" />
+          </picture>
           <div class="split-panel-copy">
             <h2>Membership</h2>
             <p>
@@ -320,16 +316,22 @@
             </div>
           </article>
           <article class="facility-item">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Chipping-Practice-Green-01.jpg"
-              alt="Chipping practice area at The Notleys" width="1600" height="759" loading="lazy" />
+            <picture>
+              <source srcset="images/notleys-chipping-green-900.webp" type="image/webp" />
+              <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Chipping-Practice-Green-01.jpg"
+                alt="Chipping practice area at The Notleys" width="1600" height="759" loading="lazy" />
+            </picture>
             <div class="facility-copy">
               <h3>Chipping green</h3>
               <p>Dedicated short-game work close to the clubhouse side.</p>
             </div>
           </article>
           <article class="facility-item">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Practice-Putting-Green-01.jpg"
-              alt="Putting green at The Notleys" width="1600" height="759" loading="lazy" />
+            <picture>
+              <source srcset="images/notleys-putting-green-900.webp" type="image/webp" />
+              <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-Practice-Putting-Green-01.jpg"
+                alt="Putting green at The Notleys" width="1600" height="759" loading="lazy" />
+            </picture>
             <div class="facility-copy">
               <h3>Putting green</h3>
               <p>A simple space for pace control and pre-round routines.</p>
@@ -344,16 +346,22 @@
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-evening-bag-view.jpeg" alt="Golf buggy access and course approach at The Notleys"
-              width="2048" height="1536" loading="lazy" />
+            <picture>
+              <source srcset="images/2026_buggies.webp" type="image/webp" />
+              <img src="images/2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club" width="3582"
+                height="4775" loading="lazy" />
+            </picture>
             <div class="facility-copy">
               <h3>Buggy hire</h3>
               <p>Available when course conditions and daily status allow.</p>
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-clubhouse-entrance.jpeg" alt="Clubhouse setting at The Notleys Golf Club"
-              width="1536" height="2048" loading="lazy" />
+            <picture>
+              <source srcset="images/notleys-clubhouse-entrance-900.webp" type="image/webp" />
+              <img src="images/notleys-clubhouse-entrance.jpeg" alt="Clubhouse setting at The Notleys Golf Club"
+                width="1536" height="2048" loading="lazy" />
+            </picture>
             <div class="facility-copy">
               <h3>Clubhouse</h3>
               <p>A practical base for check-in, food, drink, and post-round time.</p>

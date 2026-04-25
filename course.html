@@ -19,6 +19,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
@@ -27,7 +28,11 @@
   <header class="site-header">
     <div class="container header-row">
       <a class="site-brand" href="index.html#top" aria-label="The Notleys home">
-        <img src="assets/images/notleys-peacock-logo.png" alt="The Notleys Golf Club" width="1549" height="638" />
+        <img class="site-brand-mark site-brand-mark-full" src="assets/images/badge-full.svg" alt="" width="400"
+          height="400" aria-hidden="true" />
+        <img class="site-brand-mark site-brand-mark-simple" src="assets/images/avatar.svg" alt="" width="200"
+          height="200" aria-hidden="true" />
+        <span class="site-brand-text">The Notleys</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html#updates">Updates</a>
@@ -120,133 +125,203 @@
         alt="Course panorama across The Notleys Golf Club" width="1024" height="683" fetchpriority="high"
         decoding="async" />
       <div class="page-hero-overlay"></div>
-      <div class="container page-hero-inner">
-        <p class="page-hero-kicker">Course Guide</p>
-        <h1>The River Brain valley in one round</h1>
-        <p class="page-hero-copy">
-          The Notleys is an 18-hole, par 71 parkland course with open views, steady elevation changes, and a routing
-          that stays enjoyable for regular players and first-time visitors alike.
-        </p>
-        <div class="page-hero-actions">
-          <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
-            <span class="button-label">Book a Tee Time</span>
-            <span class="button-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M7 2v4M17 2v4M4 9h16" />
-                <rect x="4" y="5" width="16" height="15" rx="2" />
-              </svg>
-            </span>
-          </a>
-          <a class="button button-secondary" href="index.html#golf">
-            <span class="button-label">Back to Homepage</span>
-            <span class="button-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M19 12H5M11 6l-6 6 6 6" />
-              </svg>
-            </span>
-          </a>
+      <div class="container page-hero-inner course-hero-shell">
+        <div class="course-hero-copy">
+          <p class="page-hero-kicker">Course Guide</p>
+          <h1>A proper look at the round before you arrive</h1>
+          <p class="page-hero-copy">
+            The Notleys is a par 71 parkland course in the River Brain valley. Expect open views, measured elevation
+            changes, and a layout that stays playable for visitors while still asking for control into the greens.
+          </p>
+          <div class="page-hero-actions">
+            <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+              <span class="button-label">Book a Tee Time</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M7 2v4M17 2v4M4 9h16" />
+                  <rect x="4" y="5" width="16" height="15" rx="2" />
+                </svg>
+              </span>
+            </a>
+            <a class="button button-secondary" href="#course-reference">
+              <span class="button-label">View Map and Card</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
+        <aside class="course-hero-summary" aria-label="Course snapshot">
+          <div class="course-summary-grid">
+            <div>
+              <span class="course-summary-label">Layout</span>
+              <strong>18 holes</strong>
+            </div>
+            <div>
+              <span class="course-summary-label">Card</span>
+              <strong>Par 71</strong>
+            </div>
+            <div>
+              <span class="course-summary-label">Yardage</span>
+              <strong>6,116 yards</strong>
+            </div>
+            <div>
+              <span class="course-summary-label">Character</span>
+              <strong>Valley parkland</strong>
+            </div>
+          </div>
+          <nav class="course-anchor-nav" aria-label="Course page sections">
+            <a href="#course-overview">Overview</a>
+            <a href="#course-reference">Map and card</a>
+            <a href="#hole-gallery">Hole gallery</a>
+          </nav>
+        </aside>
       </div>
     </section>
 
-    <section class="section section-dark">
-      <div class="container course-grid">
-        <div class="course-copy">
-          <h2>Course Overview</h2>
+    <section class="section section-dark" id="course-overview">
+      <div class="container course-overview-layout">
+        <div class="course-overview-copy">
+          <p class="section-kicker">Overview</p>
+          <h2>A straightforward course guide, not a pile of uploads</h2>
           <p>
-            Set in the valley of the River Brain, the layout combines broad views with a sequence of holes that rise,
-            fall, and turn enough to stay interesting across the full round. It is approachable from the tee, but still
-            asks for tidy approaches and solid distance control into the greens.
+            The course sits neatly in the valley and unfolds with a clear rhythm: generous views from the tee, changing
+            levels across the routing, and approach shots that matter more than brute force. It is enjoyable on a first
+            visit and familiar enough to reward repeat play.
           </p>
           <div class="course-facts-inline">
             <div class="course-fact">
-              <strong>18 holes</strong>
-              <span>Parkland routing</span>
+              <strong>Open sightlines</strong>
+              <span>The shape of each hole reads clearly from the tee.</span>
             </div>
             <div class="course-fact">
-              <strong>Par 71</strong>
-              <span>Playable for visitors and members</span>
+              <strong>Measured climbs and falls</strong>
+              <span>Elevation keeps the round moving without becoming punishing.</span>
             </div>
             <div class="course-fact">
-              <strong>6,116 yards</strong>
-              <span>Valley setting with elevation change</span>
+              <strong>Playable routing</strong>
+              <span>Visitors can settle in quickly and still find enough challenge.</span>
             </div>
           </div>
         </div>
-        <div class="course-image-wrap">
-          <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-At-The-Notleys-01.jpg"
-            alt="Course overview at The Notleys" width="640" height="365" loading="lazy" />
+        <div class="course-overview-stack">
+          <figure class="course-overview-image course-overview-image-primary">
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Golf-At-The-Notleys-01.jpg"
+              alt="Wide course view at The Notleys" width="640" height="365" loading="lazy" />
+          </figure>
+          <div class="course-overview-note">
+            <p class="course-overview-note-kicker">Best used before you play</p>
+            <p>
+              Start with the map for routing, check the scorecard for yardage, then use the gallery to get a feel for
+              the character of each stretch.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-light">
+    <section class="section section-light course-reference-section" id="course-reference">
       <div class="container">
-        <div class="section-head">
-          <h2>Map and Card</h2>
+        <div class="section-head course-reference-head">
+          <div>
+            <p class="section-kicker">Reference</p>
+            <h2>Map first, scorecard second, then the gallery</h2>
+          </div>
+          <p class="course-reference-intro">
+            Everything important is here in the right order, so a visitor can understand the routing quickly instead of
+            scrolling through disconnected images.
+          </p>
         </div>
-        <div class="course-reference-grid">
-          <article class="course-reference">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Course-Map-01.png"
-              alt="Illustrated course map for The Notleys Golf Club" width="1800" height="1719" loading="lazy" />
+        <div class="course-reference-grid course-reference-grid-enhanced">
+          <article class="course-reference course-reference-map">
+            <div class="course-reference-frame">
+              <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Course-Map-01.png"
+                alt="Illustrated course map for The Notleys Golf Club" width="1800" height="1719" loading="lazy" />
+            </div>
             <div class="course-reference-copy">
               <h3>Course map</h3>
-              <p>Use the map to understand the full routing before you play, including the sequence of holes and the
-                overall movement through the valley.</p>
+              <p>Use the full routing map to understand the sequence of holes, the broad movement through the valley,
+                and where the round opens up or tightens.</p>
             </div>
           </article>
-          <article class="course-reference course-reference-tall">
-            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/The-Notleys-Scorecard-02.jpg"
-              alt="Scorecard for The Notleys Golf Club" width="787" height="1510" loading="lazy" />
+          <article class="course-reference course-reference-tall course-reference-card">
+            <div class="course-reference-frame course-reference-frame-compact">
+              <img src="scraped-assets/notleysgolfclub.co.uk-uploads/The-Notleys-Scorecard-02.jpg"
+                alt="Scorecard for The Notleys Golf Club" width="787" height="1510" loading="lazy" />
+            </div>
             <div class="course-reference-copy">
               <h3>Scorecard</h3>
-              <p>Check the card before arrival for hole progression, yardage context, and a clearer picture of how the
-                back nine compares with the outward stretch.</p>
+              <p>Check the card for yardage context and hole progression before you travel, then compare it against the
+                gallery below for a quicker mental picture of the round.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-facts">
+    <section class="section section-facts course-gallery-section" id="hole-gallery">
       <div class="container">
-        <div class="section-head">
-          <h2>Hole-by-Hole</h2>
+        <div class="section-head course-gallery-head">
+          <div>
+            <p class="section-kicker">Hole Gallery</p>
+            <h2>The full 18, presented properly</h2>
+          </div>
+          <p class="course-gallery-intro">
+            A visual run through the course, split into front and back nines so the page feels navigable instead of
+            endless.
+          </p>
         </div>
-        <div class="hole-gallery">
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-1.jpg" alt="Hole 1 at The Notleys Golf Club" width="740" height="921" /><h3>Hole 1</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-2.jpg" alt="Hole 2 at The Notleys Golf Club" width="635" height="786" /><h3>Hole 2</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-3.jpg" alt="Hole 3 at The Notleys Golf Club" width="814" height="1013" /><h3>Hole 3</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-4.jpg" alt="Hole 4 at The Notleys Golf Club" width="675" height="827" /><h3>Hole 4</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-5.jpg" alt="Hole 5 at The Notleys Golf Club" width="793" height="984" /><h3>Hole 5</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-6.jpg" alt="Hole 6 at The Notleys Golf Club" width="799" height="996" /><h3>Hole 6</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-7.jpg" alt="Hole 7 at The Notleys Golf Club" width="769" height="958" /><h3>Hole 7</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-8.jpg" alt="Hole 8 at The Notleys Golf Club" width="777" height="967" /><h3>Hole 8</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-9.jpg" alt="Hole 9 at The Notleys Golf Club" width="859" height="1069" /><h3>Hole 9</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-10.jpg" alt="Hole 10 at The Notleys Golf Club" width="747" height="1044" /><h3>Hole 10</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-11.jpg" alt="Hole 11 at The Notleys Golf Club" width="828" height="1032" /><h3>Hole 11</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-12.jpg" alt="Hole 12 at The Notleys Golf Club" width="859" height="1069" /><h3>Hole 12</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-13.jpg" alt="Hole 13 at The Notleys Golf Club" width="769" height="1123" /><h3>Hole 13</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-14.jpg" alt="Hole 14 at The Notleys Golf Club" width="774" height="965" /><h3>Hole 14</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-15.jpg" alt="Hole 15 at The Notleys Golf Club" width="752" height="937" /><h3>Hole 15</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-16.jpg" alt="Hole 16 at The Notleys Golf Club" width="838" height="1043" /><h3>Hole 16</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-17.jpg" alt="Hole 17 at The Notleys Golf Club" width="783" height="974" /><h3>Hole 17</h3></article>
-          <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-18.jpg" alt="Hole 18 at The Notleys Golf Club" width="868" height="1080" /><h3>Hole 18</h3></article>
-        </div>
+
+        <section class="hole-gallery-group" aria-labelledby="front-nine-heading">
+          <div class="hole-gallery-group-head">
+            <h3 id="front-nine-heading">Front nine</h3>
+            <p>Opening stretch, holes 1 to 9.</p>
+          </div>
+          <div class="hole-gallery">
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-1.jpg" alt="Hole 1 at The Notleys Golf Club" width="740" height="921" /><div class="hole-card-copy"><span class="hole-card-number">01</span><h4>Hole 1</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-2.jpg" alt="Hole 2 at The Notleys Golf Club" width="635" height="786" /><div class="hole-card-copy"><span class="hole-card-number">02</span><h4>Hole 2</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-3.jpg" alt="Hole 3 at The Notleys Golf Club" width="814" height="1013" /><div class="hole-card-copy"><span class="hole-card-number">03</span><h4>Hole 3</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-4.jpg" alt="Hole 4 at The Notleys Golf Club" width="675" height="827" /><div class="hole-card-copy"><span class="hole-card-number">04</span><h4>Hole 4</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-5.jpg" alt="Hole 5 at The Notleys Golf Club" width="793" height="984" /><div class="hole-card-copy"><span class="hole-card-number">05</span><h4>Hole 5</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-6.jpg" alt="Hole 6 at The Notleys Golf Club" width="799" height="996" /><div class="hole-card-copy"><span class="hole-card-number">06</span><h4>Hole 6</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-7.jpg" alt="Hole 7 at The Notleys Golf Club" width="769" height="958" /><div class="hole-card-copy"><span class="hole-card-number">07</span><h4>Hole 7</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-8.jpg" alt="Hole 8 at The Notleys Golf Club" width="777" height="967" /><div class="hole-card-copy"><span class="hole-card-number">08</span><h4>Hole 8</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-9.jpg" alt="Hole 9 at The Notleys Golf Club" width="859" height="1069" /><div class="hole-card-copy"><span class="hole-card-number">09</span><h4>Hole 9</h4></div></article>
+          </div>
+        </section>
+
+        <section class="hole-gallery-group" aria-labelledby="back-nine-heading">
+          <div class="hole-gallery-group-head">
+            <h3 id="back-nine-heading">Back nine</h3>
+            <p>Closing stretch, holes 10 to 18.</p>
+          </div>
+          <div class="hole-gallery">
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-10.jpg" alt="Hole 10 at The Notleys Golf Club" width="747" height="1044" /><div class="hole-card-copy"><span class="hole-card-number">10</span><h4>Hole 10</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-11.jpg" alt="Hole 11 at The Notleys Golf Club" width="828" height="1032" /><div class="hole-card-copy"><span class="hole-card-number">11</span><h4>Hole 11</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-12.jpg" alt="Hole 12 at The Notleys Golf Club" width="859" height="1069" /><div class="hole-card-copy"><span class="hole-card-number">12</span><h4>Hole 12</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-13.jpg" alt="Hole 13 at The Notleys Golf Club" width="769" height="1123" /><div class="hole-card-copy"><span class="hole-card-number">13</span><h4>Hole 13</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-14.jpg" alt="Hole 14 at The Notleys Golf Club" width="774" height="965" /><div class="hole-card-copy"><span class="hole-card-number">14</span><h4>Hole 14</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-15.jpg" alt="Hole 15 at The Notleys Golf Club" width="752" height="937" /><div class="hole-card-copy"><span class="hole-card-number">15</span><h4>Hole 15</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-16.jpg" alt="Hole 16 at The Notleys Golf Club" width="838" height="1043" /><div class="hole-card-copy"><span class="hole-card-number">16</span><h4>Hole 16</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-17.jpg" alt="Hole 17 at The Notleys Golf Club" width="783" height="974" /><div class="hole-card-copy"><span class="hole-card-number">17</span><h4>Hole 17</h4></div></article>
+            <article class="hole-card"><img src="scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-18.jpg" alt="Hole 18 at The Notleys Golf Club" width="868" height="1080" /><div class="hole-card-copy"><span class="hole-card-number">18</span><h4>Hole 18</h4></div></article>
+          </div>
+        </section>
       </div>
     </section>
 
-    <section class="section section-light">
+    <section class="section section-light course-endcap-section">
       <div class="container course-endcap">
         <div class="course-endcap-copy">
           <p class="section-kicker">Plan your round</p>
-          <h2>See the shape of the course before you arrive</h2>
+          <h2>Everything you need before booking is now on one page</h2>
           <p>
-            Between the map, the card, and the full hole sequence, this page gives visitors a clearer feel for the
-            layout before they book. For availability and live playing conditions, return to the homepage or go
-            straight to online booking.
+            The guide now gives a cleaner sense of the routing, the card, and the visual feel of the course. For live
+            availability, head straight to booking. For club information, return to the main site.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
@@ -259,12 +334,12 @@
                 </svg>
               </span>
             </a>
-            <a class="button button-secondary" href="index.html#contact-section">
-              <span class="button-label">Ask a Question</span>
+            <a class="button button-secondary" href="index.html">
+              <span class="button-label">Back to Homepage</span>
               <span class="button-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
                   stroke-linejoin="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
+                  <path d="M19 12H5M11 6l-6 6 6 6" />
                 </svg>
               </span>
             </a>

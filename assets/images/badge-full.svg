@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <circle cx="200" cy="200" r="193" fill="#D4A536"/>
+  <circle cx="200" cy="200" r="185" fill="#0F3B2E"/>
+  <circle cx="200" cy="200" r="175" fill="none" stroke="#D4A536" stroke-width="2.5"/>
+
+  <text x="200" y="278"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="260"
+    textLength="230"
+    lengthAdjust="spacingAndGlyphs"
+    fill="#D4A536">N</text>
+
+  <g transform="translate(148, 224)">
+    <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#FFCA28"/>
+    <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#FFCA28" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#FFCA28" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#FFCA28" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#FFCA28" transform="rotate(288)"/>
+    <line x1="0" y1="-4" x2="0" y2="-31" stroke="#C9971A" stroke-width="1"/>
+    <line x1="0" y1="-4" x2="0" y2="-31" stroke="#C9971A" stroke-width="1" transform="rotate(72)"/>
+    <line x1="0" y1="-4" x2="0" y2="-31" stroke="#C9971A" stroke-width="1" transform="rotate(144)"/>
+    <line x1="0" y1="-4" x2="0" y2="-31" stroke="#C9971A" stroke-width="1" transform="rotate(216)"/>
+    <line x1="0" y1="-4" x2="0" y2="-31" stroke="#C9971A" stroke-width="1" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="7" fill="#0F3B2E"/>
+    <circle cx="0" cy="0" r="3" fill="#D4A536"/>
+    <path d="M -2.5,7 L -3,44 L 3,44 L 2.5,7 Z" fill="#D4A536"/>
+    <rect x="-9" y="42" width="18" height="3" rx="1.5" fill="#D4A536"/>
+  </g>
+
+  <text x="200" y="322"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="14" letter-spacing="6"
+    fill="#D4A536">EST. 1995</text>
+  <rect x="182" y="328" width="36" height="1.5" rx="0.75" fill="#D4A536"/>
+</svg>

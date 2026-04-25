@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="97" fill="#0F3B2E"/>
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#D4A536" stroke-width="3"/>
+
+  <text x="100" y="142"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="115"
+    fill="#D4A536">N</text>
+
+  <!-- Scaled-down flower — bloom at (74, 109), stem to ~133 -->
+  <g transform="translate(74, 109)">
+    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28"/>
+    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="4.5" fill="#0F3B2E"/>
+    <circle cx="0" cy="0" r="2" fill="#D4A536"/>
+    <path d="M -1.5,4 L -2,24 L 2,24 L 1.5,4 Z" fill="#D4A536"/>
+    <rect x="-5" y="22" width="10" height="2" rx="1" fill="#D4A536"/>
+  </g>
+</svg>

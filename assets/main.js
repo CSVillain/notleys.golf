@@ -76,7 +76,13 @@ const initialiseMenu = () => {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 760) {
+    if (window.innerWidth >= 1100) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
       closeMenu();
     }
   });
