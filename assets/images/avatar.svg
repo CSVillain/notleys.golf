@@ -1,23 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <circle cx="100" cy="100" r="97" fill="#0F3B2E"/>
-  <circle cx="100" cy="100" r="97" fill="none" stroke="#D4A536" stroke-width="3"/>
-
-  <text x="100" y="142"
-    text-anchor="middle"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="115"
-    fill="#D4A536">N</text>
-
-  <!-- Scaled-down flower — bloom at (74, 109), stem to ~133 -->
-  <g transform="translate(74, 109)">
-    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28"/>
-    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(72)"/>
-    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(144)"/>
-    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(216)"/>
-    <ellipse cx="0" cy="-11" rx="5.5" ry="9" fill="#FFCA28" transform="rotate(288)"/>
-    <circle cx="0" cy="0" r="4.5" fill="#0F3B2E"/>
-    <circle cx="0" cy="0" r="2" fill="#D4A536"/>
-    <path d="M -1.5,4 L -2,24 L 2,24 L 1.5,4 Z" fill="#D4A536"/>
-    <rect x="-5" y="22" width="10" height="2" rx="1" fill="#D4A536"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="The Notleys Golf Club icon">
+  <rect x="18" y="18" width="204" height="204" rx="44" fill="#fff" stroke="#1E3A8A" stroke-width="5"/>
+  <g transform="translate(0 2)">
+    <g fill="#4C6FAF" stroke="#1E3A8A" stroke-width="1.5">
+      <path d="M120 34 C135 44 137 65 121 77 C104 66 105 45 120 34Z"/>
+      <path d="M160 62 C154 82 135 92 121 78 C126 58 145 52 160 62Z"/>
+      <path d="M146 111 C126 111 114 94 121 78 C140 80 152 94 146 111Z"/>
+      <path d="M94 111 C88 94 100 80 119 78 C126 94 114 111 94 111Z"/>
+      <path d="M80 62 C95 52 114 58 119 78 C105 92 86 82 80 62Z"/>
+    </g>
+    <g stroke="#fff" stroke-width="4" stroke-linecap="round">
+      <path d="M120 78v-30"/>
+      <path d="M120 78l26-13"/>
+      <path d="M120 78l18 24"/>
+      <path d="M120 78l-18 24"/>
+      <path d="M120 78L94 65"/>
+    </g>
+    <circle cx="120" cy="78" r="5" fill="#fff"/>
+    <path d="M119 84 C113 120 101 139 76 168" fill="none" stroke="#1E3A8A" stroke-width="6" stroke-linecap="round"/>
+    <g fill="#4C6FAF" stroke="#1E3A8A" stroke-width="1.5">
+      <path d="M75 166 C65 145 49 132 29 126 C46 149 55 163 59 187 C63 178 68 171 75 166Z"/>
+      <path d="M75 166 C84 146 98 134 117 127 C97 148 86 162 82 187 C80 178 78 171 75 166Z"/>
+      <path d="M67 151 C55 135 43 124 25 116 C47 119 61 128 72 143Z"/>
+    </g>
+    <path d="M78 189 C111 175 153 172 197 181" fill="none" stroke="#1E3A8A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M44 198 C85 183 132 184 178 202" fill="none" stroke="#1E3A8A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M174 68v94" fill="none" stroke="#1E3A8A" stroke-width="6" stroke-linecap="round"/>
+    <path d="M180 72l34 17-34 17Z" fill="#1E3A8A"/>
+    <ellipse cx="174" cy="165" rx="14" ry="5" fill="#7A7A7A" opacity="0.55"/>
   </g>
 </svg>

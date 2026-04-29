@@ -2,6 +2,8 @@ const statusGrid = document.querySelector("#status-grid");
 const newsGrid = document.querySelector("#news-grid");
 const themeToggles = Array.from(document.querySelectorAll("[data-theme-toggle]"));
 const themeColorMeta = document.querySelector("#theme-color-meta");
+const themeImageSources = Array.from(document.querySelectorAll("[data-theme-srcset]"));
+const themeImages = Array.from(document.querySelectorAll("img[data-light-src][data-dark-src]"));
 const menuToggle = document.querySelector("#menu-toggle");
 const siteMenu = document.querySelector("#site-menu");
 const menuLinks = Array.from(document.querySelectorAll(".site-menu a"));
@@ -18,10 +20,26 @@ const applyTheme = (theme) => {
   document.documentElement.dataset.theme = theme;
 
   if (themeColorMeta) {
-    themeColorMeta.setAttribute("content", theme === "dark" ? "#0d0f11" : "#f6f2eb");
+    themeColorMeta.setAttribute("content", theme === "dark" ? "#1E3A8A" : "#f7f8fa");
   }
 
   const isDark = theme === "dark";
+  const themeKey = isDark ? "dark" : "light";
+
+  themeImageSources.forEach((source) => {
+    const nextSrcset = source.dataset[`${themeKey}Srcset`];
+    if (nextSrcset) {
+      source.setAttribute("srcset", nextSrcset);
+    }
+  });
+
+  themeImages.forEach((image) => {
+    const nextSrc = image.dataset[`${themeKey}Src`];
+    if (nextSrc && image.getAttribute("src") !== nextSrc) {
+      image.setAttribute("src", nextSrc);
+    }
+  });
+
   themeToggles.forEach((toggle) => {
     toggle.setAttribute("aria-pressed", String(isDark));
     const actionLabel = isDark ? "Switch to light mode" : "Switch to dark mode";
@@ -250,11 +268,16 @@ const resolveTone = (value) => {
 };
 
 const resolveLastUpdated = (value) => {
-  if (!value || value === "[#datetimenow#]") {
-    return "Update pending";
-  }
+  const formatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  });
 
-  return String(value).split(" at ")[0];
+  return formatter.format(new Date()).replace(",", "");
 };
 
 const buildStatusItems = (data) => {
@@ -332,11 +355,19 @@ const renderNews = (items) => {
   newsGrid.innerHTML = items
     .map(
       (item) => `
-        <article class="update-card">
-          <p class="update-date">${formatDate(item.date)}</p>
-          <h3>${item.title}</h3>
+        <details class="update-card">
+          <summary>
+            <span class="update-summary-copy">
+              <span class="update-date">${formatDate(item.date)}</span>
+              <span class="update-title">${item.title}</span>
+            </span>
+            <span class="update-toggle" aria-hidden="true">
+              <span class="update-toggle-read">Read update</span>
+              <span class="update-toggle-close">Close update</span>
+            </span>
+          </summary>
           <p>${item.summary}</p>
-        </article>
+        </details>
       `
     )
     .join("");

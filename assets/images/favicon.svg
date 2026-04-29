@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <circle cx="16" cy="16" r="15.5" fill="#0F3B2E"/>
-  <circle cx="16" cy="16" r="15.5" fill="none" stroke="#D4A536" stroke-width="1.5"/>
+  <circle cx="16" cy="16" r="15.5" fill="#ffffff"/>
+  <circle cx="16" cy="16" r="15.5" fill="none" stroke="#1E3A8A" stroke-width="1.5"/>
   <text x="16" y="23"
     text-anchor="middle"
     font-family="Georgia, 'Times New Roman', serif"
     font-size="18"
-    fill="#D4A536">N</text>
+    fill="#1E3A8A">N</text>
 </svg>

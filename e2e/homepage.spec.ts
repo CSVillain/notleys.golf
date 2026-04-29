@@ -107,7 +107,7 @@ test.describe("homepage", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
 
-    const bookingBox = await page.locator(".hero-actions").getByRole("link", { name: "Book a Tee Time" }).boundingBox();
+    const bookingBox = await page.locator(".hero-actions").getByRole("link", { name: "Explore Course" }).boundingBox();
     const statusBox = await page.locator("#club-status").boundingBox();
 
     expect(bookingBox?.y).toBeLessThan(844);
