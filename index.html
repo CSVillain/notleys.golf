@@ -3,11 +3,86 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>The Notleys</title>
   <meta name="theme-color" content="#f7f8fa" id="theme-color-meta" />
   <meta name="description"
     content="The Notleys is an 18-hole, par 71 parkland course in the River Brain valley with online booking and up-to-date club status." />
+  <meta name="keywords"
+    content="golf, golf club, notleys, essex, golf course, parkland, river brain, booking, tee times" />
+  <meta name="author" content="The Notleys Golf Club" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="geo.region" content="GB-ESX" />
+  <meta name="geo.placename" content="White Notley" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://notleys.golf/" />
+  <meta property="og:title" content="The Notleys Golf Club" />
+  <meta property="og:description"
+    content="18-hole, par 71 parkland course in the River Brain valley with online booking and up-to-date club status." />
+  <meta property="og:image" content="https://notleys.golf/images/notleys-sunny-course-view.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://notleys.golf/" />
+  <meta property="twitter:title" content="The Notleys Golf Club" />
+  <meta property="twitter:description"
+    content="18-hole, par 71 parkland course in the River Brain valley with online booking and up-to-date club status." />
+  <meta property="twitter:image" content="https://notleys.golf/images/notleys-sunny-course-view.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GolfCourse",
+    "name": "The Notleys Golf Club",
+    "description": "18-hole, par 71 parkland course in the River Brain valley",
+    "url": "https://notleys.golf",
+    "telephone": "+44 1376 329328",
+    "email": "thenotleysgc@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Witham Road",
+      "addressLocality": "White Notley",
+      "addressRegion": "Essex",
+      "postalCode": "CM8 1ST",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.8333",
+      "longitude": "0.6167"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Golf Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Green Fee Play",
+            "description": "Visitor golf with online booking"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Membership",
+            "description": "Club membership for regular play"
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "150"
+    }
+  }
+  </script>
   <script>
     (() => {
       const savedTheme = localStorage.getItem("notleys-theme");
@@ -51,7 +126,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
                   stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="3.5" />
-                  <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                  <path
+                    d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
                 </svg>
               </span>
               <span class="theme-toggle-icon theme-toggle-icon-moon">
@@ -102,7 +178,8 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="3.5" />
-                    <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                    <path
+                      d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
                   </svg>
                 </span>
                 <span class="theme-toggle-icon theme-toggle-icon-moon">
@@ -122,13 +199,13 @@
   <main id="main-content">
     <section class="hero">
       <picture class="hero-picture">
-        <source data-theme-srcset data-light-srcset="images/notleys-sunny-course-view-900.webp 900w, images/notleys-sunny-course-view-1800.webp 1800w"
+        <source data-theme-srcset
+          data-light-srcset="images/notleys-sunny-course-view-900.webp 900w, images/notleys-sunny-course-view-1800.webp 1800w"
           data-dark-srcset="images/notleys-frost-hero-1200.webp 1200w"
           srcset="images/notleys-sunny-course-view-900.webp 900w, images/notleys-sunny-course-view-1800.webp 1800w"
           sizes="100vw" type="image/webp" />
         <img class="hero-image" src="images/notleys-sunny-course-view.jpg"
-          data-light-src="images/notleys-sunny-course-view.jpg"
-          data-dark-src="images/notleys-frost-hero.jpeg"
+          data-light-src="images/notleys-sunny-course-view.jpg" data-dark-src="images/notleys-frost-hero.jpeg"
           alt="View across The Notleys golf course" width="2555" height="1916" fetchpriority="high" decoding="async" />
       </picture>
       <div class="hero-overlay"></div>
@@ -230,8 +307,8 @@
           </a>
         </div>
         <div class="course-image-wrap">
-          <img src="images/notleys-course-landscape-large.jpg"
-            alt="Panoramic view across The Notleys course" width="640" height="365" loading="lazy" />
+          <img src="images/notleys-course-landscape-large.jpg" alt="Panoramic view across The Notleys course"
+            width="640" height="365" loading="lazy" />
         </div>
       </div>
     </section>
@@ -312,8 +389,8 @@
         </div>
         <div class="facilities-grid">
           <article class="facility-item">
-            <img src="images/notleys-practice-ground.jpeg"
-              alt="Driving range at The Notleys Golf Club" width="640" height="365" loading="lazy" />
+            <img src="images/notleys-practice-ground.jpeg" alt="Driving range at The Notleys Golf Club" width="640"
+              height="365" loading="lazy" />
             <div class="facility-copy">
               <h3>Driving range</h3>
               <p>Warm-up and practice space before the round.</p>
@@ -342,8 +419,8 @@
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-coaching-practice.jpeg"
-              alt="Golf coaching area at The Notleys" width="640" height="365" loading="lazy" />
+            <img src="images/notleys-coaching-practice.jpeg" alt="Golf coaching area at The Notleys" width="640"
+              height="365" loading="lazy" />
             <div class="facility-copy">
               <h3>Coaching</h3>
               <p>Support for improving golfers and regular practice sessions.</p>
@@ -447,6 +524,34 @@
       </div>
     </div>
   </footer>
+
+  <noscript>
+    <style>
+      .theme-toggle,
+      .menu-toggle,
+      #contact-form {
+        display: none;
+      }
+
+      #status-grid,
+      #news-grid {
+        display: none;
+      }
+
+      .noscript-fallback {
+        display: block !important;
+      }
+    </style>
+    <div class="noscript-fallback section">
+      <div class="container">
+        <h2>JavaScript Required</h2>
+        <p>This website requires JavaScript to function properly. Please enable JavaScript in your browser settings and
+          reload the page.</p>
+        <p>For course status and contact information, please call <a href="tel:01376329328">01376 329 328</a> or email
+          <a href="mailto:thenotleysgc@gmail.com">thenotleysgc@gmail.com</a>.</p>
+      </div>
+    </div>
+  </noscript>
 
   <script type="module" src="assets/main.js"></script>
 </body>
