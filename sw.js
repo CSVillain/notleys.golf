@@ -1,5 +1,5 @@
 // Service Worker for caching static assets
-const CACHE_NAME = "notleys-v1";
+const CACHE_NAME = "notleys-v2";
 const STATIC_CACHE_URLS = [
   "/",
   "/index.html",
@@ -40,7 +40,16 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch event - serve from cache when offline
+const shouldUseNetworkFirst = (request) => {
+  return (
+    request.mode === "navigate" ||
+    request.destination === "document" ||
+    request.destination === "style" ||
+    request.destination === "script"
+  );
+};
+
+// Fetch event - keep app shell fresh, fall back to cache when offline
 self.addEventListener("fetch", (event) => {
   // Only cache GET requests
   if (event.request.method !== "GET") return;
@@ -48,35 +57,41 @@ self.addEventListener("fetch", (event) => {
   // Skip external requests
   if (!event.request.url.startsWith(self.location.origin)) return;
 
+  const cacheResponse = (networkResponse) => {
+    if (!networkResponse.ok) {
+      return networkResponse;
+    }
+
+    const responseClone = networkResponse.clone();
+    caches.open(CACHE_NAME).then((cache) => {
+      cache.put(event.request, responseClone);
+    });
+
+    return networkResponse;
+  };
+
+  if (shouldUseNetworkFirst(event.request)) {
+    event.respondWith(
+      fetch(event.request)
+        .then(cacheResponse)
+        .catch(() =>
+          caches.match(event.request).then((response) => {
+            if (response) {
+              return response;
+            }
+
+            if (event.request.headers.get("accept")?.includes("text/html")) {
+              return caches.match("/index.html");
+            }
+          }),
+        ),
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
-      // Return cached version if available
-      if (response) {
-        return response;
-      }
-
-      // Otherwise fetch from network
-      return fetch(event.request)
-        .then((networkResponse) => {
-          // Don't cache non-successful responses
-          if (!networkResponse.ok) {
-            return networkResponse;
-          }
-
-          // Cache successful responses
-          const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
-          });
-
-          return networkResponse;
-        })
-        .catch(() => {
-          // Return offline fallback for HTML pages
-          if (event.request.headers.get("accept").includes("text/html")) {
-            return caches.match("/index.html");
-          }
-        });
+      return response || fetch(event.request).then(cacheResponse);
     }),
   );
 });

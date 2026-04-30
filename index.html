@@ -103,10 +103,8 @@
   <header class="site-header">
     <div class="container header-row">
       <a class="site-brand" href="#top" aria-label="The Notleys home">
-        <img class="site-brand-mark site-brand-mark-full" src="assets/images/badge-full.svg" alt="" width="400"
+        <img class="site-brand-mark" src="assets/images/logo-blue.png" alt="" width="400"
           height="400" aria-hidden="true" />
-        <img class="site-brand-mark site-brand-mark-simple" src="assets/images/avatar.svg" alt="" width="200"
-          height="200" aria-hidden="true" />
         <span class="site-brand-text">The Notleys Golf Club</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
@@ -238,12 +236,13 @@
                   </svg>
                 </span>
               </a>
-              <a class="button button-secondary" href="course.html">
-                <span class="button-label">Explore the Course</span>
+              <a class="button button-secondary" href="https://visitors.brsgolf.com/notleys#/course/1">
+                <span class="button-label">Book a Tee Time</span>
                 <span class="button-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
                     stroke-linejoin="round">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
+                    <path d="M7 2v4M17 2v4M4 9h16" />
+                    <rect x="4" y="5" width="16" height="15" rx="2" />
                   </svg>
                 </span>
               </a>
@@ -262,17 +261,17 @@
     <section id="updates" class="section section-light">
       <div class="container">
         <div class="updates-layout">
-          <div class="section-head">
+          <div class="section-head reveal">
             <h2>Latest Updates</h2>
           </div>
-          <div class="updates-grid" id="news-grid" aria-live="polite"></div>
+          <div class="updates-grid reveal reveal-delay-1" id="news-grid" aria-live="polite"></div>
         </div>
       </div>
     </section>
 
     <section id="golf" class="section section-dark">
       <div class="container course-grid">
-        <div class="course-copy">
+        <div class="course-copy reveal">
           <h2>Golf at The Notleys</h2>
           <p>
             The Notleys is an 18-hole, 6,116-yard par 71 parkland course set in the valley of the River Brain. The
@@ -306,36 +305,16 @@
             </span>
           </a>
         </div>
-        <div class="course-image-wrap">
+        <div class="course-image-wrap reveal reveal-delay-1">
           <img src="images/notleys-course-landscape-large.jpg" alt="Panoramic view across The Notleys course"
             width="640" height="365" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <section class="section buggy-section">
-      <div class="container buggy-grid">
-        <div class="buggy-copy">
-          <p class="section-kicker">Buggy Hire</p>
-          <h2>Comfortable access around the course</h2>
-          <p>
-            Buggies are available for hire when course conditions allow. Check the daily course status or speak to the
-            club before travelling if buggy access is essential for your round.
-          </p>
-        </div>
-        <div class="buggy-image-wrap">
-          <picture>
-            <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
-            <img src="images/wide-2026_buggies.jpg" alt="Golf buggies lined up at The Notleys Golf Club" width="7050"
-              height="3965" loading="lazy" />
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <section id="visitors-membership" class="section">
+<section id="visitors-membership" class="section">
       <div class="container split-grid">
-        <article class="split-panel split-panel-image">
+        <article class="split-panel split-panel-image reveal">
           <picture>
             <source srcset="images/notleys-visitor-fairway-1200.webp" type="image/webp" />
             <img src="images/notleys-visitor-fairway.jpg" alt="Fairway view for visitor play at The Notleys"
@@ -357,7 +336,7 @@
             </a>
           </div>
         </article>
-        <article class="split-panel split-panel-image">
+        <article class="split-panel split-panel-image reveal reveal-delay-1">
           <picture>
             <source srcset="images/notleys-frost-hero-1200.webp" type="image/webp" />
             <img src="images/notleys-frost-hero.jpeg" alt="Early morning round setting at The Notleys" width="2048"
@@ -384,13 +363,13 @@
 
     <section id="facilities" class="section">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Facilities</h2>
         </div>
-        <div class="facilities-grid">
+        <div class="facilities-grid reveal reveal-delay-1">
           <article class="facility-item">
-            <img src="images/notleys-practice-ground.jpeg" alt="Driving range at The Notleys Golf Club" width="640"
-              height="365" loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/golf-driving-range-braintree-witham-2.jpg"
+              alt="Covered driving range bays at The Notleys Golf Club" width="1600" height="759" loading="lazy" />
             <div class="facility-copy">
               <h3>Driving range</h3>
               <p>Warm-up and practice space before the round.</p>
@@ -419,8 +398,8 @@
             </div>
           </article>
           <article class="facility-item">
-            <img src="images/notleys-coaching-practice.jpeg" alt="Golf coaching area at The Notleys" width="640"
-              height="365" loading="lazy" />
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/golf-lessons-at-the-notleys-1.jpg"
+              alt="Golf lesson and coaching at The Notleys" width="1600" height="759" loading="lazy" />
             <div class="facility-copy">
               <h3>Coaching</h3>
               <p>Support for improving golfers and regular practice sessions.</p>
@@ -428,9 +407,9 @@
           </article>
           <article class="facility-item">
             <picture>
-              <source srcset="images/2026_buggies.webp" type="image/webp" />
-              <img src="images/2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club" width="3582"
-                height="4775" loading="lazy" />
+              <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
+              <img src="images/wide-2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club"
+                width="3582" height="2687" loading="lazy" />
             </picture>
             <div class="facility-copy">
               <h3>Buggy hire</h3>
@@ -438,11 +417,8 @@
             </div>
           </article>
           <article class="facility-item">
-            <picture>
-              <source srcset="images/notleys-clubhouse-entrance-900.webp" type="image/webp" />
-              <img src="images/notleys-clubhouse-entrance.jpeg" alt="Clubhouse setting at The Notleys Golf Club"
-                width="1536" height="2048" loading="lazy" />
-            </picture>
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Function-Room-For-Hire-01.jpg"
+              alt="Clubhouse function room at The Notleys Golf Club" width="1600" height="759" loading="lazy" />
             <div class="facility-copy">
               <h3>Clubhouse</h3>
               <p>A practical base for check-in, food, drink, and post-round time.</p>
@@ -454,7 +430,7 @@
 
     <section id="contact-section" class="section section-contact">
       <div class="container contact-grid">
-        <div class="contact-copy">
+        <div class="contact-copy reveal">
           <p class="section-kicker">Contact</p>
           <h2>Get in Touch</h2>
           <p class="contact-lead">
@@ -467,7 +443,7 @@
             <p>Witham Road, White Notley, Witham CM8 1ST</p>
           </div>
         </div>
-        <form class="contact-form" id="contact-form" novalidate>
+        <form class="contact-form reveal reveal-delay-1" id="contact-form" novalidate>
           <div class="form-grid">
             <label>
               <span>Name</span>
