@@ -1,19 +1,21 @@
 {
   "name": "notleys.golf",
   "version": "1.0.0",
-  "description": "",
+  "description": "Static website for The Notleys Golf Club.",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "scripts": {
+    "test": "playwright test",
+    "test:e2e": "playwright test"
+  },
+  "keywords": [
+    "static-site",
+    "golf"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0"
-  },
-  "dependencies": {
-    "gh": "^2.5.0",
-    "github": "^14.0.0"
   }
 }

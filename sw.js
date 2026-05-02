@@ -3,13 +3,14 @@ const CACHE_NAME = "notleys-v2";
 const STATIC_CACHE_URLS = [
   "/",
   "/index.html",
+  "/course.html",
+  "/facilities.html",
   "/assets/styles.css",
   "/assets/main.js",
   "/data/club-status.json",
   "/data/news.json",
-  "/assets/images/favicon.svg",
-  "/assets/images/badge-full.svg",
   "/assets/images/avatar.svg",
+  "/assets/images/badge-full.svg",
 ];
 
 // Install event - cache static assets

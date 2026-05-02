@@ -398,66 +398,6 @@ const initialiseContactForm = () => {
 
 const normaliseValue = (value) => String(value).trim().toLowerCase();
 
-const londonParts = () => {
-  const formatter = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/London",
-    weekday: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  });
-
-  const parts = formatter.formatToParts(new Date());
-  const readPart = (type) =>
-    parts.find((part) => part.type === type)?.value || "";
-
-  return {
-    weekday: readPart("weekday").toLowerCase(),
-    time: `${readPart("hour")}:${readPart("minute")}`,
-  };
-};
-
-const toMinutes = (value) => {
-  const [hours, minutes] = String(value || "00:00")
-    .split(":")
-    .map(Number);
-  return hours * 60 + minutes;
-};
-
-const resolveBookingWindowStatus = (data) => {
-  const bookingWindow = data.bookingWindow;
-
-  if (!bookingWindow) {
-    return { isOpenNow: true, withinBookingWindow: true };
-  }
-
-  const { weekday, time } = londonParts();
-  const schedule = bookingWindow[weekday];
-
-  if (!schedule?.open || !schedule?.close) {
-    return { isOpenNow: true, withinBookingWindow: true };
-  }
-
-  const nowMinutes = toMinutes(time);
-  const openMinutes = toMinutes(schedule.open);
-  const closeMinutes = toMinutes(schedule.close);
-  const withinBookingWindow =
-    nowMinutes >= openMinutes && nowMinutes < closeMinutes;
-
-  return { isOpenNow: withinBookingWindow, withinBookingWindow };
-};
-
-const effectiveCourseStatus = (data) => {
-  const baseStatus = String(data.status || "").trim();
-
-  if (normaliseValue(baseStatus) === "closed") {
-    return baseStatus || "Closed";
-  }
-
-  const { isOpenNow } = resolveBookingWindowStatus(data);
-  return isOpenNow ? baseStatus || "Open" : "Closed";
-};
-
 const statusText = (value) => {
   if (typeof value === "boolean") {
     return value ? "Yes" : "No";
@@ -480,30 +420,12 @@ const resolveTone = (value) => {
   return "open";
 };
 
-const resolveLastUpdated = (value) => {
-  const formatter = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/London",
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  });
-
-  return formatter.format(new Date()).replace(",", "");
-};
-
 const buildStatusItems = (data) => {
-  const status = effectiveCourseStatus(data);
-  const items = [{ label: "Status", value: status, tone: resolveTone(status) }];
+  const items = [];
+  const status = normaliseValue(data.status);
 
-  if (normaliseValue(status) === "closed") {
-    items.push({
-      label: "Updated",
-      value: resolveLastUpdated(data.lastUpdated),
-      tone: "muted",
-    });
-    return items;
+  if (status === "closed") {
+    return [{ label: "Course", value: "Closed", tone: "closed" }];
   }
 
   if (normaliseValue(data.carryOnly) === "yes") {
@@ -550,11 +472,9 @@ const buildStatusItems = (data) => {
     items.push({ label: "Mats", value: data.teeOffMats, tone: "amber" });
   }
 
-  items.push({
-    label: "Updated",
-    value: resolveLastUpdated(data.lastUpdated),
-    tone: "muted",
-  });
+  if (items.length === 0) {
+    items.push({ label: "Course", value: "Fully open", tone: "open" });
+  }
 
   return items;
 };
@@ -687,8 +607,112 @@ const loadData = async () => {
   }
 };
 
+const initialiseHoleViewer = () => {
+  const img = document.querySelector("#hole-viewer-img");
+  const label = document.querySelector("#hole-viewer-label");
+  const nineEl = document.querySelector("#hole-viewer-nine");
+  const parEl = document.querySelector("#hole-viewer-par");
+  const yardsEl = document.querySelector("#hole-viewer-yards");
+  const indexEl = document.querySelector("#hole-viewer-index");
+  const progressBar = document.querySelector("#hole-viewer-progress");
+  const countEl = document.querySelector("#hole-viewer-count");
+  const prevBtn = document.querySelector("#hole-prev");
+  const nextBtn = document.querySelector("#hole-next");
+  const strip = document.querySelector("#hole-strip");
+
+  if (!img || !strip) return;
+
+  // Par, yardage (white tees), and stroke index per hole
+  const holes = [
+    { par: 5, yards: 503, index: 1  },
+    { par: 4, yards: 382, index: 11 },
+    { par: 3, yards: 148, index: 17 },
+    { par: 4, yards: 363, index: 7  },
+    { par: 4, yards: 408, index: 3  },
+    { par: 4, yards: 381, index: 9  },
+    { par: 3, yards: 175, index: 15 },
+    { par: 4, yards: 326, index: 13 },
+    { par: 5, yards: 476, index: 5  },
+    { par: 4, yards: 305, index: 12 },
+    { par: 4, yards: 378, index: 4  },
+    { par: 3, yards: 165, index: 16 },
+    { par: 4, yards: 350, index: 8  },
+    { par: 5, yards: 476, index: 2  },
+    { par: 4, yards: 336, index: 10 },
+    { par: 3, yards: 142, index: 18 },
+    { par: 4, yards: 348, index: 14 },
+    { par: 4, yards: 358, index: 6  },
+  ];
+
+  const buttons = Array.from(strip.querySelectorAll(".hole-strip-btn"));
+  let current = 1;
+
+  const goTo = (n) => {
+    current = n;
+    const hole = holes[n - 1];
+
+    img.classList.add("transitioning");
+    setTimeout(() => {
+      img.src = `scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-${n}.jpg`;
+      img.alt = `Hole ${n} diagram at The Notleys Golf Club`;
+      img.classList.remove("transitioning");
+    }, 180);
+
+    label.textContent = `Hole ${n}`;
+    if (nineEl) nineEl.textContent = n <= 9 ? "Front nine" : "Back nine";
+    if (parEl) parEl.textContent = hole.par;
+    if (yardsEl) yardsEl.textContent = hole.yards;
+    if (indexEl) indexEl.textContent = hole.index;
+    if (progressBar) progressBar.style.width = `${(n / 18) * 100}%`;
+    if (countEl) countEl.textContent = `${n} / 18`;
+
+    buttons.forEach((btn) => {
+      const active = Number(btn.dataset.hole) === n;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-selected", String(active));
+    });
+
+    const activeBtn = buttons.find((b) => Number(b.dataset.hole) === n);
+    activeBtn?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => goTo(Number(btn.dataset.hole)));
+  });
+
+  prevBtn?.addEventListener("click", () => goTo(current > 1 ? current - 1 : 18));
+  nextBtn?.addEventListener("click", () => goTo(current < 18 ? current + 1 : 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (!document.querySelector("#hole-viewer")) return;
+    if (e.key === "ArrowRight") goTo(current < 18 ? current + 1 : 1);
+    if (e.key === "ArrowLeft") goTo(current > 1 ? current - 1 : 18);
+  });
+};
+
+const initialiseReveal = () => {
+  const targets = document.querySelectorAll(".reveal");
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+};
+
 loadData();
 registerServiceWorker();
 initialiseTheme();
 initialiseMenu();
 initialiseContactForm();
+initialiseHoleViewer();
+initialiseReveal();

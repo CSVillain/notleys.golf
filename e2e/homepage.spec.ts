@@ -15,9 +15,10 @@ test.describe("homepage", () => {
       page.getByRole("heading", { name: "Golf at The Notleys" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", {
-        name: "Comfortable access around the course",
-      }),
+      page.getByRole("heading", { name: "Facilities" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "View facilities" }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Get in Touch" }),
@@ -39,27 +40,38 @@ test.describe("homepage", () => {
     await page.waitForSelector("#site-menu:not([hidden])");
 
     await expect(
-      page.getByRole("link", { name: "Contact" }).last(),
+      page.getByRole("link", { name: "Course" }).last(),
     ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Facilities" }).last(),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "Contact" })).toHaveCount(0);
   });
 
   test("renders status and updates from JSON", async ({ page }) => {
     await page.goto("/");
 
-    // Wait for status cards to appear
-    await page.waitForSelector("#status-grid .status-card", { timeout: 10000 });
+    // Wait for status cards to render. The header status is hidden on mobile.
+    await page.waitForSelector("#status-grid .status-card", {
+      state: "attached",
+      timeout: 10000,
+    });
 
-    await expect(page.locator("#status-grid .status-card")).toHaveCount(2);
+    await expect(page.locator("#status-grid .status-card")).toHaveCount(1);
+    await expect(page.locator("#status-grid")).toContainText("Fully open");
     await expect(page.locator("#news-grid .update-card")).toHaveCount(1);
   });
 
-  test("shows the buggy hire imagery", async ({ page }) => {
-    await page.goto("/");
+  test("moves full facilities detail to the dedicated page", async ({
+    page,
+  }) => {
+    await page.goto("/facilities.html");
 
     await expect(
-      page.getByRole("img", {
-        name: "Golf buggies lined up at The Notleys Golf Club",
-      }),
+      page.getByRole("heading", { name: "Practice and Clubhouse" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Buggy hire" }),
     ).toBeVisible();
     await expect(
       page.getByRole("img", {
@@ -176,7 +188,7 @@ test.describe("homepage", () => {
     expect(menuBackground).not.toBe("rgba(0, 0, 0, 0)");
   });
 
-  test("keeps mobile hero CTA and course status above the fold", async ({
+  test("keeps mobile hero CTA above the fold and status in desktop nav", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -186,11 +198,18 @@ test.describe("homepage", () => {
       .locator(".hero-actions")
       .getByRole("link", { name: "Explore Course" })
       .boundingBox();
-    const statusBox = await page.locator("#club-status").boundingBox();
 
     expect(bookingBox?.y).toBeLessThan(844);
-    expect(statusBox?.y).toBeLessThan(844);
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/");
+
     await expect(page.locator("#club-status")).toBeVisible();
+    await expect(page.locator("#club-status")).toContainText("Fully open");
+    await expect(page.locator("#club-status")).toHaveCSS(
+      "background-color",
+      "rgba(0, 0, 0, 0)",
+    );
   });
 
   test("does not fetch the removed dark hero JPEG on initial load", async ({
@@ -210,7 +229,7 @@ test.describe("homepage", () => {
     ).toBe(false);
     expect(
       Array.from(loadedUrls).some((url) =>
-        url.includes("notleys-sunny-course-view"),
+        url.includes("notleys-green-approach"),
       ),
     ).toBe(true);
   });

@@ -6,6 +6,9 @@
   --bg-dark: #0a1f35;
   --surface: #1e4d6d;
   --surface-soft: rgba(30, 77, 109, 0.85);
+  --brand-peacock-blue: #1e3a8a;
+  --brand-lake-blue: #4c6faf;
+  --brand-stone-grey: #7a7a7a;
 
   /* Text colors */
   --text: #f5f7fa;
@@ -210,7 +213,7 @@ p {
   width: auto;
   height: 52px;
   border-radius: 999px;
-  filter: brightness(0) invert(1);
+  box-shadow: 0 2px 12px rgba(5, 7, 8, 0.2);
 }
 
 .site-brand-text {
@@ -248,6 +251,38 @@ p {
 .site-nav a,
 .site-menu-nav a {
   position: relative;
+}
+
+.header-course-status {
+  display: none;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 14px rgba(5, 7, 8, 0.42);
+}
+
+.header-status-grid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-course-status .status-card {
+  gap: 0.45rem;
+}
+
+.header-course-status .status-card-label {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.header-course-status .status-card-value {
+  font-size: 0.92rem;
+  text-shadow: none;
+}
+
+.header-course-status .status-dot {
+  width: 8px;
+  height: 8px;
+  box-shadow: none;
 }
 
 .site-nav a::after,
@@ -669,21 +704,28 @@ p {
 }
 
 .hero-grid {
-  min-height: calc(100svh - var(--header-height));
+  min-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(0, 37rem) minmax(18rem, 1fr);
-  align-items: end;
-  gap: var(--space-10);
-  padding: clamp(5.5rem, 9vw, 8rem) 0 var(--space-8);
+  align-items: center;
+  justify-items: center;
+  padding: calc(var(--header-height) + clamp(6rem, 11vw, 10rem)) 0 clamp(2.5rem, 5vw, 4rem);
   position: relative;
 }
 
 .hero-copy {
-  max-width: 35rem;
+  max-width: 56rem;
   color: #fff;
-  align-self: end;
-  margin-left: var(--hero-copy-offset);
-  padding-bottom: clamp(3rem, 10vh, 6rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-brand-mark {
+  width: clamp(5.5rem, 8vw, 7rem);
+  height: auto;
+  margin: 0 auto var(--space-5);
+  display: block;
+  border-radius: 999px;
+  box-shadow: 0 10px 34px rgba(5, 7, 8, 0.28);
 }
 
 .hero-copy h1 {
@@ -696,9 +738,10 @@ p {
 }
 
 .hero-copy p {
-  max-width: 31rem;
+  max-width: 41rem;
+  margin-inline: auto;
   margin-bottom: var(--space-8);
-  font-size: 1.04rem;
+  font-size: 1.08rem;
   line-height: 1.7;
   color: var(--text-inverse);
 }
@@ -706,7 +749,19 @@ p {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-4);
+}
+
+.hero-actions .button-primary {
+  background: var(--brand-peacock-blue);
+  border-color: var(--brand-peacock-blue);
+}
+
+.hero-actions .button-primary:hover,
+.hero-actions .button-primary:focus-visible {
+  background: var(--brand-lake-blue);
+  border-color: var(--brand-lake-blue);
 }
 
 .hero-actions .button-secondary {
@@ -722,18 +777,16 @@ p {
 }
 
 .hero-status {
-  width: min(100%, 28rem);
-  justify-self: end;
-  align-self: end;
-  margin-right: var(--hero-status-offset);
-  margin-bottom: clamp(3rem, 10vh, 6rem);
-  padding: 0.35rem 0 0;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto var(--space-6);
+  padding: 0.62rem 0.85rem;
   color: #fff;
-  background: none;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  backdrop-filter: none;
+  background: rgba(5, 7, 8, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
 }
 
 .hero-status-head {
@@ -753,13 +806,14 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.7rem 1.35rem;
+  justify-content: center;
+  gap: 0.7rem 1.05rem;
 }
 
 .status-card {
   display: inline-flex;
   align-items: center;
-  gap: 0.58rem;
+  gap: 0.62rem;
   padding: 0;
   border: 0;
 }
@@ -769,11 +823,11 @@ p {
 }
 
 .status-card-label {
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.72);
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
 }
 
 .status-card-value {
@@ -789,12 +843,12 @@ p {
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   display: inline-block;
   border-radius: 999px;
   flex: none;
-  box-shadow: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.16);
 }
 
 .status-dot.status-open {
@@ -825,6 +879,18 @@ p {
 
 .status-closed {
   background: var(--closed);
+}
+
+.hero-meta {
+  padding-inline: 1rem;
+}
+
+.hero-meta .hero-status-grid {
+  gap: 0.75rem 1.25rem;
+}
+
+.hero-meta .status-card-value {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.26);
 }
 
 .status-unavailable {
@@ -873,6 +939,14 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.section-intro {
+  max-width: 38rem;
+  margin-top: var(--space-4);
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .updates-layout {
@@ -1099,6 +1173,35 @@ p {
 .facilities-grid {
   display: grid;
   gap: var(--space-8) var(--space-5);
+}
+
+.facility-teaser {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.facility-teaser img {
+  width: 100%;
+  min-height: 20rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.facility-teaser-copy {
+  max-width: 34rem;
+}
+
+.facility-teaser-copy h3 {
+  margin-bottom: var(--space-3);
+  font-size: var(--size-h3);
+  letter-spacing: -0.02em;
+}
+
+.facility-teaser-copy p {
+  margin-bottom: var(--space-5);
+  color: var(--text-muted);
+  line-height: 1.65;
 }
 
 .facility-item {
@@ -2065,7 +2168,11 @@ p {
     column-gap: var(--space-8);
   }
 
-.course-endcap {
+  .facility-teaser {
+    grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+  }
+
+  .course-endcap {
     grid-template-columns: minmax(0, 1fr) minmax(22rem, 34rem);
   }
 
@@ -2090,6 +2197,10 @@ p {
     display: flex;
   }
 
+  .header-course-status {
+    display: flex;
+  }
+
   .site-menu,
   .menu-toggle {
     display: none;
@@ -2102,7 +2213,7 @@ p {
   }
 
   .hero-status {
-    width: min(100%, 26rem);
+    width: min(100%, 24rem);
   }
 
   .hero-status-head {
@@ -2139,22 +2250,26 @@ p {
   }
 
   .hero {
-    min-height: auto;
+    min-height: 100svh;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    align-items: start;
-    gap: var(--space-5);
-    min-height: min(100svh, 44rem);
-    padding: calc(var(--header-height) + 0.55rem) 0 var(--space-5);
+    align-items: center;
+    justify-items: center;
+    min-height: 100svh;
+    padding: calc(var(--header-height) + 7.5rem) 0 var(--space-5);
   }
 
   .hero-copy {
-    max-width: min(24rem, 100%);
-    margin-left: 0;
-    padding-bottom: 0;
-    align-self: start;
+    max-width: min(26rem, 100%);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-brand-mark {
+    width: clamp(4.25rem, 18vw, 5.25rem);
+    margin-bottom: var(--space-4);
   }
 
   .hero-copy h1 {
@@ -2165,6 +2280,7 @@ p {
 
   .hero-copy p {
     max-width: 24rem;
+    margin-inline: auto;
     margin-bottom: var(--space-5);
     font-size: 0.98rem;
     line-height: 1.58;
@@ -2172,6 +2288,7 @@ p {
   }
 
   .hero-actions {
+    justify-content: center;
     gap: var(--space-3);
   }
 
@@ -2180,12 +2297,9 @@ p {
   }
 
   .hero-status {
-    width: 100%;
-    justify-self: stretch;
-    margin-right: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    align-self: end;
+    width: fit-content;
+    margin-bottom: var(--space-5);
+    padding: 0.56rem 0.75rem;
   }
 
   .hero-status-head {
@@ -2193,7 +2307,7 @@ p {
   }
 
   .status-card {
-    padding: 0.62rem 0;
+    padding: 0;
   }
 
   .page-hero {
@@ -2233,6 +2347,7 @@ p {
   .updates-layout,
   .course-grid,
   .split-grid,
+  .facility-teaser,
   .contact-grid {
     gap: var(--space-8);
   }

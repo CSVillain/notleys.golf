@@ -9,10 +9,23 @@ node_modules/
 
 # Local tooling
 .codex
+pw-screenshot.js
 
 # Review artifacts
 /artifacts/
-/scraped-assets/
+/scraped-assets/*
+!/scraped-assets/notleysgolfclub.co.uk-uploads/
+/scraped-assets/notleysgolfclub.co.uk-uploads/*
+!/scraped-assets/notleysgolfclub.co.uk-uploads/Function-Room-For-Hire-01.jpg
+!/scraped-assets/notleysgolfclub.co.uk-uploads/golf-driving-range-braintree-witham-2.jpg
+!/scraped-assets/notleysgolfclub.co.uk-uploads/golf-lessons-at-the-notleys-1.jpg
+!/scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Course-Map-01.png
+!/scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-*.jpg
+!/scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Course-Main-Image-02.jpg
+!/scraped-assets/notleysgolfclub.co.uk-uploads/The-Notleys-Scorecard-02.jpg
 /*.png
 Uncodixfy.md
-assets/.DS_Store
+
+# Design source / OS metadata
+*.ai
+.DS_Store

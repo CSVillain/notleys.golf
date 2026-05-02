@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Facilities | The Notleys</title>
+  <meta name="theme-color" content="#f7f8fa" id="theme-color-meta" />
+  <meta name="description"
+    content="Explore facilities at The Notleys Golf Club, including the driving range, practice greens, coaching, buggy hire, and clubhouse." />
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("notleys-theme");
+      document.documentElement.dataset.theme = savedTheme || "light";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/images/avatar.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="site-brand" href="index.html#top" aria-label="The Notleys home">
+        <img class="site-brand-mark" src="assets/images/avatar.svg" alt="" width="208" height="208"
+          aria-hidden="true" />
+        <span class="site-brand-text">The Notleys Golf Club</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="course.html">Course</a>
+        <a href="facilities.html">Facilities</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle theme-toggle-desktop" data-theme-toggle type="button" aria-pressed="true"
+          aria-label="Switch to light mode" title="Switch to light mode">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-thumb">
+              <span class="theme-toggle-icon theme-toggle-icon-sun">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3.5" />
+                  <path
+                    d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                </svg>
+              </span>
+              <span class="theme-toggle-icon theme-toggle-icon-moon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </button>
+        <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+          <span class="button-label">Book a Tee Time</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M7 2v4M17 2v4M4 9h16" />
+              <rect x="4" y="5" width="16" height="15" rx="2" />
+            </svg>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-toggle-label">Menu</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="container site-menu-inner">
+        <nav class="site-menu-nav" aria-label="Mobile">
+          <a href="course.html">Course</a>
+          <a href="facilities.html">Facilities</a>
+        </nav>
+        <div class="site-menu-utility">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true"
+            aria-label="Switch to light mode" title="Switch to light mode">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb">
+                <span class="theme-toggle-icon theme-toggle-icon-sun">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3.5" />
+                    <path
+                      d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                  </svg>
+                </span>
+                <span class="theme-toggle-icon theme-toggle-icon-moon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero page-hero-facilities">
+      <picture class="hero-picture">
+        <source data-theme-srcset data-light-srcset="images/range-view.jpg" data-dark-srcset="images/range_balls.JPEG"
+          srcset="images/range-view.jpg" sizes="100vw" />
+        <img class="hero-image" src="images/range-view.jpg" data-light-src="images/range-view.jpg"
+          data-dark-src="images/range_balls.JPEG" alt="Covered driving range bays at The Notleys Golf Club" width="4032"
+          height="3024" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="hero-overlay"></div>
+      <div class="container hero-layout">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <img class="hero-brand-mark" src="assets/images/avatar.svg" alt="" width="208" height="208"
+              aria-hidden="true" />
+            <h1>Practice and Clubhouse</h1>
+            <p>
+              Warm up before a round, work on the short game, book coaching, or settle in around the clubhouse.
+            </p>
+            <aside class="hero-status hero-meta" aria-label="Facilities snapshot">
+              <div class="hero-status-grid">
+                <article class="status-card">
+                  <span class="status-card-label">Practice</span>
+                  <span class="status-card-value">Range</span>
+                </article>
+                <article class="status-card">
+                  <span class="status-card-label">Short game</span>
+                  <span class="status-card-value">Greens</span>
+                </article>
+                <article class="status-card">
+                  <span class="status-card-label">Clubhouse</span>
+                  <span class="status-card-value">Food and drink</span>
+                </article>
+              </div>
+            </aside>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#facilities">
+                <span class="button-label">View Facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </a>
+              <a class="button button-secondary" href="https://visitors.brsgolf.com/notleys#/course/1">
+                <span class="button-label">Book a Tee Time</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M7 2v4M17 2v4M4 9h16" />
+                    <rect x="4" y="5" width="16" height="15" rx="2" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilities" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">On site</p>
+          <h2>Facilities</h2>
+          <p class="section-intro">
+            Facilities are available around daily course conditions, coaching schedules, and clubhouse opening times.
+          </p>
+        </div>
+        <div class="facilities-grid reveal reveal-delay-1">
+          <article class="facility-item">
+            <img src="images/range_balls.JPEG" alt="Covered driving range bays at The Notleys Golf Club" width="1600"
+              height="759" loading="lazy" />
+            <div class="facility-copy">
+              <h3>Driving range</h3>
+              <p>Warm-up and practice space before the round.</p>
+            </div>
+          </article>
+          <article class="facility-item">
+            <picture>
+              <source srcset="images/chipping-green.jpg" type="image/webp" />
+              <img src="images/chipping-green.jpg" alt="Chipping practice area at The Notleys" width="1600" height="759"
+                loading="lazy" />
+            </picture>
+            <div class="facility-copy">
+              <h3>Chipping green</h3>
+              <p>Dedicated short-game work close to the clubhouse side.</p>
+            </div>
+          </article>
+          <article class="facility-item">
+            <picture>
+              <source srcset="images/notleys-putting-green-900.webp" type="image/webp" />
+              <img src="images/notleys-putting-green.jpeg" alt="Putting green at The Notleys" width="1600" height="759"
+                loading="lazy" />
+            </picture>
+            <div class="facility-copy">
+              <h3>Putting green</h3>
+              <p>A simple space for pace control and pre-round routines.</p>
+            </div>
+          </article>
+          <article class="facility-item">
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/golf-lessons-at-the-notleys-1.jpg"
+              alt="Golf lesson and coaching at The Notleys" width="1600" height="759" loading="lazy" />
+            <div class="facility-copy">
+              <h3>Coaching</h3>
+              <p>Support for improving golfers and regular practice sessions.</p>
+            </div>
+          </article>
+          <article class="facility-item">
+            <picture>
+              <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
+              <img src="images/wide-2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club" width="3582"
+                height="2687" loading="lazy" />
+            </picture>
+            <div class="facility-copy">
+              <h3>Buggy hire</h3>
+              <p>Available when course conditions and daily status allow.</p>
+            </div>
+          </article>
+          <article class="facility-item">
+            <img src="scraped-assets/notleysgolfclub.co.uk-uploads/Function-Room-For-Hire-01.jpg"
+              alt="Clubhouse function room at The Notleys Golf Club" width="1600" height="759" loading="lazy" />
+            <div class="facility-copy">
+              <h3>Clubhouse</h3>
+              <p>A practical base for check-in, food, drink, and post-round time.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2>The Notleys</h2>
+        <p>Witham Road, White Notley, Witham CM8 1ST</p>
+      </div>
+      <div>
+        <p>01376 329 328</p>
+        <p><a href="mailto:thenotleysgc@gmail.com">thenotleysgc@gmail.com</a></p>
+      </div>
+      <div>
+        <p><a href="index.html">Homepage</a></p>
+        <p><a href="course.html">Course Guide</a></p>
+        <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/main.js"></script>
+</body>
+
+</html>
