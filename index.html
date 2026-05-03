@@ -191,12 +191,10 @@
   <main id="main-content">
     <section class="hero">
       <picture class="hero-picture">
-        <source data-theme-srcset
-          data-light-srcset="images/clubhouse-view.jpg"
-          data-dark-srcset="images/notleys-evening-bag-view.jpeg"
-          srcset="images/clubhouse-view.jpg" sizes="100vw" />
-        <img class="hero-image" src="images/clubhouse-view.jpg"
-          data-light-src="images/clubhouse-view.jpg" data-dark-src="images/notleys-evening-bag-view.jpeg"
+        <source data-theme-srcset data-light-srcset="images/clubhouse-view.jpg"
+          data-dark-srcset="images/notleys-evening-bag-view.jpeg" srcset="images/clubhouse-view.jpg" sizes="100vw" />
+        <img class="hero-image" src="images/clubhouse-view.jpg" data-light-src="images/clubhouse-view.jpg"
+          data-dark-src="images/notleys-evening-bag-view.jpeg"
           alt="View from the clubhouse across The Notleys golf course" width="5712" height="3213" fetchpriority="high"
           decoding="async" />
       </picture>
@@ -208,7 +206,8 @@
               aria-hidden="true" />
             <h1>The Notleys Golf Club</h1>
             <p>
-              Running through the scenic Brain valley, the course offers beautiful views, challenging slopes, and great value for all players.
+              Running through the scenic Brain valley, the course offers beautiful views, challenging slopes, and great
+              value for all players.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="course.html">
@@ -327,8 +326,8 @@
           </a>
         </div>
         <div class="course-image-wrap reveal reveal-delay-1">
-          <img src="images/clubhouse-view.jpg" alt="Panoramic view across The Notleys course"
-            width="640" height="365" loading="lazy" />
+          <img src="images/clubhouse-view.jpg" alt="Panoramic view across The Notleys course" width="640" height="365"
+            loading="lazy" />
         </div>
       </div>
     </section>
@@ -380,7 +379,9 @@
             <p>Witham Road, White Notley, Witham CM8 1ST</p>
           </div>
         </div>
-        <form class="contact-form reveal reveal-delay-1" id="contact-form" novalidate>
+        <form class="contact-form reveal reveal-delay-1" id="contact-form"
+          data-contact-endpoint="https://script.google.com/macros/s/AKfycbxZbIE27MYOpFzarWGzVp4p6HjpSAr__NDFGmpsjcGvoviiW8eAOflN3ElFFqnXuK6FAA/exec"
+          novalidate>
           <div class="form-grid">
             <label>
               <span>Name</span>
@@ -392,7 +393,21 @@
             </label>
             <label>
               <span>Subject</span>
-              <input type="text" name="subject" required />
+              <select name="subject" required>
+                <option value="" selected disabled>Choose a subject</option>
+                <option value="General enquiry">General enquiry</option>
+                <option value="Membership">Membership</option>
+                <option value="Visitor / green fee enquiry">Visitor / green fee enquiry</option>
+                <option value="Society or group booking">Society or group booking</option>
+                <option value="Course status">Course status</option>
+                <option value="Competitions">Competitions</option>
+                <option value="Website feedback">Website feedback</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" />
             </label>
             <label class="contact-honeypot" aria-hidden="true">
               <span>Website</span>

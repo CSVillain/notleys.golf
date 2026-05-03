@@ -108,6 +108,7 @@ test.describe("homepage", () => {
     await expect(
       page.getByRole("img", { name: "Hole 1 diagram at The Notleys Golf Club" }),
     ).toBeVisible();
+    await expect(page.locator("#hole-viewer-index")).toHaveText("9");
 
     for (const hole of ["10", "18"]) {
       await page.getByRole("tab", { name: hole, exact: true }).click();
@@ -117,6 +118,8 @@ test.describe("homepage", () => {
         }),
       ).toBeVisible();
     }
+
+    await expect(page.locator("#hole-viewer-index")).toHaveText("10");
 
     const brokenImages = await page.evaluate(() =>
       Array.from(document.images)
@@ -131,6 +134,23 @@ test.describe("homepage", () => {
   test("shows contact relay configuration warning when endpoint is not configured", async ({
     page,
   }) => {
+    await page.route("http://127.0.0.1:4173/", async (route) => {
+      const response = await route.fetch();
+      const body = (await response.text()).replace(
+        /data-contact-endpoint="[^"]+"/,
+        'data-contact-endpoint="https://script.google.com/macros/s/REPLACE_WITH_APPS_SCRIPT_DEPLOYMENT_ID/exec"',
+      );
+
+      await route.fulfill({
+        response,
+        body,
+        headers: {
+          ...response.headers(),
+          "content-type": "text/html",
+        },
+      });
+    });
+
     await page.goto("/");
 
     // Wait for form to be ready
@@ -141,8 +161,9 @@ test.describe("homepage", () => {
       .locator('#contact-form input[name="email"]')
       .fill("test@example.com");
     await page
-      .locator('#contact-form input[name="subject"]')
-      .fill("General enquiry");
+      .locator('#contact-form select[name="subject"]')
+      .selectOption("General enquiry");
+    await page.locator('#contact-form input[name="phone"]').fill("01376 329328");
     await page
       .locator('#contact-form textarea[name="message"]')
       .fill("Checking the contact form.");
@@ -160,6 +181,71 @@ test.describe("homepage", () => {
     await expect(page.locator("#contact-status")).toContainText(
       "endpoint still needs to be added",
     );
+  });
+
+  test("submits contact enquiries to the configured relay", async ({
+    page,
+  }) => {
+    const submissions: Record<string, string>[] = [];
+
+    await page.route("http://127.0.0.1:4173/", async (route) => {
+      const response = await route.fetch();
+      const body = (await response.text()).replace(
+        /data-contact-endpoint="[^"]+"/,
+        'data-contact-endpoint="/contact-test"',
+      );
+
+      await route.fulfill({
+        response,
+        body,
+        headers: {
+          ...response.headers(),
+          "content-type": "text/html",
+        },
+      });
+    });
+
+    await page.route("http://127.0.0.1:4173/contact-test", async (route) => {
+      const request = route.request();
+      submissions.push(
+        Object.fromEntries(new URLSearchParams(request.postData() || "")),
+      );
+
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ success: true }),
+      });
+    });
+
+    await page.goto("/");
+
+    await page.locator('#contact-form input[name="name"]').fill("Test User");
+    await page
+      .locator('#contact-form input[name="email"]')
+      .fill("test@example.com");
+    await page
+      .locator('#contact-form select[name="subject"]')
+      .selectOption("General enquiry");
+    await page.locator('#contact-form input[name="phone"]').fill("01376 329328");
+    await page
+      .locator('#contact-form textarea[name="message"]')
+      .fill("Checking the contact form.");
+    await page.getByRole("button", { name: "Send Enquiry" }).click();
+
+    await expect(page.locator("#contact-status")).toContainText(
+      "Enquiry sent",
+    );
+    expect(submissions).toEqual([
+      expect.objectContaining({
+        name: "Test User",
+        email: "test@example.com",
+        subject: "General enquiry",
+        phone: "01376 329328",
+        message: "Checking the contact form.",
+        source: "homepage-contact",
+      }),
+    ]);
   });
 
   test("toggles theme from the desktop utility control", async ({ page }) => {

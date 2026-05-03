@@ -21,8 +21,10 @@ const contactStatus = document.querySelector("#contact-status");
 const captureSection = new URLSearchParams(window.location.search).get(
   "capture",
 );
+const CONTACT_ENDPOINT_PLACEHOLDER = "REPLACE_WITH_APPS_SCRIPT_DEPLOYMENT_ID";
 const CONTACT_ENDPOINT =
-  "https://script.google.com/macros/s/REPLACE_WITH_APPS_SCRIPT_DEPLOYMENT_ID/exec";
+  contactForm?.dataset.contactEndpoint?.trim() ||
+  `https://script.google.com/macros/s/${CONTACT_ENDPOINT_PLACEHOLDER}/exec`;
 
 if (captureSection) {
   document.body.dataset.capture = captureSection;
@@ -237,18 +239,78 @@ const setContactStatus = (message, tone = "") => {
   contactStatus.dataset.tone = tone;
 };
 
-// Sanitize input to prevent XSS
-const sanitizeInput = (input) => {
-  const div = document.createElement("div");
-  div.textContent = input;
-  return div.innerHTML;
-};
-
 // Validate email format
 const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
+
+const isContactEndpointConfigured = () =>
+  Boolean(CONTACT_ENDPOINT) &&
+  !CONTACT_ENDPOINT.includes(CONTACT_ENDPOINT_PLACEHOLDER);
+
+const submitContactPayload = (payload) =>
+  new Promise((resolve, reject) => {
+    const frameName = `contact-relay-${Date.now()}`;
+    const iframe = document.createElement("iframe");
+    const relayForm = document.createElement("form");
+    let submitted = false;
+    let settled = false;
+
+    const cleanup = () => {
+      window.setTimeout(() => {
+        iframe.remove();
+        relayForm.remove();
+      }, 1000);
+    };
+
+    const settle = (callback) => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      cleanup();
+      callback();
+    };
+
+    const timeoutId = window.setTimeout(() => {
+      settle(() => reject(new Error("Contact relay timed out")));
+    }, 15000);
+
+    iframe.name = frameName;
+    iframe.title = "Contact form submission";
+    iframe.hidden = true;
+
+    iframe.addEventListener("load", () => {
+      if (!submitted) {
+        return;
+      }
+
+      window.clearTimeout(timeoutId);
+      settle(resolve);
+    });
+
+    relayForm.method = "POST";
+    relayForm.action = CONTACT_ENDPOINT;
+    relayForm.target = frameName;
+    relayForm.hidden = true;
+
+    Object.entries(payload).forEach(([name, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.value = value;
+      relayForm.append(input);
+    });
+
+    document.body.append(iframe, relayForm);
+
+    window.setTimeout(() => {
+      submitted = true;
+      relayForm.submit();
+    }, 0);
+  });
 
 // Rate limiting for contact form submissions
 let lastSubmissionTime = 0;
@@ -276,6 +338,7 @@ const initialiseContactForm = () => {
       name: String(formData.get("name") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       subject: String(formData.get("subject") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
       message: String(formData.get("message") || "").trim(),
       website: String(formData.get("website") || "").trim(),
       source: "homepage-contact",
@@ -319,19 +382,13 @@ const initialiseContactForm = () => {
       return;
     }
 
-    if (CONTACT_ENDPOINT.includes("REPLACE_WITH_APPS_SCRIPT_DEPLOYMENT_ID")) {
+    if (!isContactEndpointConfigured()) {
       setContactStatus(
         "Contact form is ready, but the Google Apps Script endpoint still needs to be added.",
         "error",
       );
       return;
     }
-
-    // Sanitize inputs
-    payload.name = sanitizeInput(payload.name);
-    payload.email = sanitizeInput(payload.email);
-    payload.subject = sanitizeInput(payload.subject);
-    payload.message = sanitizeInput(payload.message);
 
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const submitLabel = submitButton?.querySelector(".button-label");
@@ -345,29 +402,7 @@ const initialiseContactForm = () => {
     setContactStatus("Sending enquiry...", "pending");
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-
-      const response = await fetch(CONTACT_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || "Submission failed");
-      }
+      await submitContactPayload(payload);
 
       contactForm.reset();
       setContactStatus(
@@ -376,14 +411,10 @@ const initialiseContactForm = () => {
       );
       lastSubmissionTime = Date.now();
     } catch (error) {
-      if (error.name === "AbortError") {
-        setContactStatus("Request timed out. Please try again.", "error");
-      } else {
-        setContactStatus(
-          "Unable to send right now. Please email thenotleysgc@gmail.com directly.",
-          "error",
-        );
-      }
+      setContactStatus(
+        "Unable to send right now. Please email thenotleysgc@gmail.com directly.",
+        "error",
+      );
       console.error("Contact form error:", error);
     } finally {
       if (submitButton instanceof HTMLButtonElement) {
@@ -622,26 +653,26 @@ const initialiseHoleViewer = () => {
 
   if (!img || !strip) return;
 
-  // Par, yardage (white tees), and stroke index per hole
+  // Par, yardage (white tees), and scorecard Hcap index per hole.
   const holes = [
-    { par: 5, yards: 503, index: 1  },
-    { par: 4, yards: 382, index: 11 },
-    { par: 3, yards: 148, index: 17 },
-    { par: 4, yards: 363, index: 7  },
-    { par: 4, yards: 408, index: 3  },
-    { par: 4, yards: 381, index: 9  },
-    { par: 3, yards: 175, index: 15 },
-    { par: 4, yards: 326, index: 13 },
-    { par: 5, yards: 476, index: 5  },
+    { par: 5, yards: 503, index: 9  },
+    { par: 4, yards: 382, index: 7  },
+    { par: 3, yards: 148, index: 15 },
+    { par: 4, yards: 363, index: 13 },
+    { par: 4, yards: 408, index: 1  },
+    { par: 4, yards: 381, index: 5  },
+    { par: 3, yards: 175, index: 17 },
+    { par: 4, yards: 326, index: 3  },
+    { par: 5, yards: 476, index: 11 },
     { par: 4, yards: 305, index: 12 },
-    { par: 4, yards: 378, index: 4  },
-    { par: 3, yards: 165, index: 16 },
-    { par: 4, yards: 350, index: 8  },
+    { par: 4, yards: 378, index: 6  },
+    { par: 3, yards: 165, index: 4  },
+    { par: 4, yards: 350, index: 14 },
     { par: 5, yards: 476, index: 2  },
-    { par: 4, yards: 336, index: 10 },
-    { par: 3, yards: 142, index: 18 },
-    { par: 4, yards: 348, index: 14 },
-    { par: 4, yards: 358, index: 6  },
+    { par: 4, yards: 336, index: 18 },
+    { par: 3, yards: 142, index: 8  },
+    { par: 4, yards: 348, index: 16 },
+    { par: 4, yards: 358, index: 10 },
   ];
 
   const buttons = Array.from(strip.querySelectorAll(".hole-strip-btn"));

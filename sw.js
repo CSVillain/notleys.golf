@@ -1,5 +1,5 @@
 // Service Worker for caching static assets
-const CACHE_NAME = "notleys-v7";
+const CACHE_NAME = "notleys-v8";
 const STATIC_CACHE_URLS = [
   "/",
   "/index.html",
