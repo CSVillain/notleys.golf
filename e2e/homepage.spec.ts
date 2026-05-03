@@ -71,12 +71,45 @@ test.describe("homepage", () => {
       page.getByRole("heading", { name: "Course Facilities" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Buggy hire" }),
+      page.getByRole("button", { name: /Buggy hire/ }),
     ).toBeVisible();
     await expect(
       page.getByRole("img", {
         name: "Golf buggies available at The Notleys Golf Club",
       }),
+    ).toBeVisible();
+  });
+
+  test("expands and closes facility details", async ({ page }) => {
+    await page.goto("/facilities.html");
+
+    const facilitiesGrid = page.locator("[data-facilities-grid]");
+    const buggyHire = page.locator("[data-facility-item]").filter({
+      hasText: "Buggy hire",
+    });
+
+    await page.getByRole("button", { name: /Buggy hire/ }).click();
+
+    await expect(facilitiesGrid).toHaveClass(/has-expanded/);
+    await expect(buggyHire).toHaveClass(/is-expanded/);
+    await expect(
+      page.getByText("Single-seater buggies are available for £25"),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: /Driving range/ }),
+    ).toBeHidden();
+
+    await page.keyboard.press("Escape");
+    await expect(facilitiesGrid).not.toHaveClass(/has-expanded/);
+    await expect(
+      page.locator('[aria-controls="facility-driving-range-details"]'),
+    ).toBeVisible();
+
+    await page.getByRole("button", { name: /Clubhouse/ }).click();
+    await page.getByRole("button", { name: "Show all facilities" }).click();
+    await expect(facilitiesGrid).not.toHaveClass(/has-expanded/);
+    await expect(
+      page.getByRole("button", { name: /Putting green/ }),
     ).toBeVisible();
   });
 

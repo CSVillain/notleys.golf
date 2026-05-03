@@ -3,6 +3,7 @@ const CACHE_NAME = "notleys-v8";
 const STATIC_CACHE_URLS = [
   "/",
   "/index.html",
+  "/about.html",
   "/course.html",
   "/facilities.html",
   "/assets/styles.css",

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>About | The Notleys</title>
+  <meta name="theme-color" content="#f7f8fa" id="theme-color-meta" />
+  <meta name="description"
+    content="About The Notleys Golf Club: accessible, non-elitist golf in the River Brain valley, open to beginners, members, visitors, and regular golfers." />
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("notleys-theme");
+      document.documentElement.dataset.theme = savedTheme || "light";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/images/avatar.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="site-brand" href="index.html#top" aria-label="The Notleys home">
+        <img class="site-brand-mark" src="assets/images/avatar.svg" alt="" width="208" height="208"
+          aria-hidden="true" />
+        <span class="site-brand-text">The Notleys Golf Club</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="about.html">About</a>
+        <a href="course.html">Course</a>
+        <a href="facilities.html">Facilities</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle theme-toggle-desktop" data-theme-toggle type="button" aria-pressed="true"
+          aria-label="Switch to light mode" title="Switch to light mode">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-thumb">
+              <span class="theme-toggle-icon theme-toggle-icon-sun">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3.5" />
+                  <path
+                    d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                </svg>
+              </span>
+              <span class="theme-toggle-icon theme-toggle-icon-moon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </button>
+        <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+          <span class="button-label">Book a Tee Time</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M7 2v4M17 2v4M4 9h16" />
+              <rect x="4" y="5" width="16" height="15" rx="2" />
+            </svg>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-toggle-label">Menu</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="container site-menu-inner">
+        <nav class="site-menu-nav" aria-label="Mobile">
+          <a href="about.html">About</a>
+          <a href="course.html">Course</a>
+          <a href="facilities.html">Facilities</a>
+          <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
+        </nav>
+        <div class="site-menu-utility">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true"
+            aria-label="Switch to light mode" title="Switch to light mode">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb">
+                <span class="theme-toggle-icon theme-toggle-icon-sun">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3.5" />
+                    <path
+                      d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+                  </svg>
+                </span>
+                <span class="theme-toggle-icon theme-toggle-icon-moon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 15.2A8.6 8.6 0 1 1 8.8 4 7 7 0 0 0 20 15.2Z" />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero page-hero-about">
+      <picture class="hero-picture">
+        <source data-theme-srcset data-light-srcset="images/notleys-sunny-course-view-1800.webp"
+          data-dark-srcset="images/notleys-storm-valley-1600.webp" srcset="images/notleys-sunny-course-view-1800.webp"
+          sizes="100vw" type="image/webp" />
+        <img class="hero-image" src="images/notleys-sunny-course-view.jpg"
+          data-light-src="images/notleys-sunny-course-view.jpg" data-dark-src="images/notleys-storm-valley.jpg"
+          alt="Fairway view across The Notleys Golf Club in the River Brain valley" width="1800" height="1200"
+          fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="hero-overlay"></div>
+      <div class="container hero-layout">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Golf that is easy to start and worth coming back to.</h1>
+            <p>
+              The Notleys is an accessible, non-elitist golf club in the River Brain valley. Eighteen holes, par 71,
+              and a place where you can turn up, learn, play, and keep improving.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+                <span class="button-label">Book a Tee Time</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M7 2v4M17 2v4M4 9h16" />
+                    <rect x="4" y="5" width="16" height="15" rx="2" />
+                  </svg>
+                </span>
+              </a>
+              <a class="button button-secondary" href="course.html">
+                <span class="button-label">View the Course</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6 3v18" />
+                    <path d="M6 4h11l-2 4 2 4H6" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-intro-section">
+      <div class="container about-lede reveal">
+        <p class="section-kicker">A golf club first</p>
+        <h2>A place to play golf, not protect an image.</h2>
+        <p>
+          The Notleys exists for people who want to play. The club is not built around formality, status, or making golf
+          feel harder to enter than it needs to be.
+        </p>
+        <p>
+          Members and visitors use it as a real club: book a round, get out on the course, practise when needed, and
+          come back regularly.
+        </p>
+        <p>
+          You do not need a golfing background to start here. Plenty of people first pick up the game at The Notleys and
+          learn the basics without having to pretend they already know how everything works.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container about-course-grid">
+        <div class="about-course-copy reveal">
+          <p class="section-kicker">The course</p>
+          <h2>Playable, repeatable, still interesting.</h2>
+          <p>
+            The course is an 18-hole parkland layout measuring 6,116 yards, playing to par 71. It sits in the River
+            Brain valley, with natural changes in level and open views across the course.
+          </p>
+          <p>
+            The River Brain comes into play on several holes. It adds decisions and consequences, but the course is
+            still playable enough to suit regular rounds, practice rounds, and people building confidence.
+          </p>
+          <div class="about-fact-row" aria-label="Course facts">
+            <span>18 holes</span>
+            <span>Par 71</span>
+            <span>6,116 yards</span>
+          </div>
+        </div>
+        <div class="about-course-media reveal reveal-delay-1">
+          <picture>
+            <source srcset="images/notleys-valley-fairway.jpeg" />
+            <img src="images/notleys-valley-fairway.jpeg" alt="Fairway running through the River Brain valley"
+              width="2048" height="1536" loading="lazy" />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">Who it is for</p>
+          <h2>You can start here.</h2>
+          <p class="section-intro">
+            The club works because different kinds of golfers use it in the same straightforward way: play, learn, and
+            come back.
+          </p>
+        </div>
+        <div class="about-row-list reveal reveal-delay-1">
+          <article>
+            <h3>Members</h3>
+            <p>Regular golfers who want a club they can use often, not just on special occasions.</p>
+          </article>
+          <article>
+            <h3>Visitors</h3>
+            <p>Players looking for an accessible round in Essex without unnecessary formality.</p>
+          </article>
+          <article>
+            <h3>Beginners</h3>
+            <p>People starting without prior experience, equipment confidence, or club knowledge.</p>
+          </article>
+          <article>
+            <h3>Regular golfers</h3>
+            <p>Players who want a repeatable course with enough interest to stay engaging.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container about-standards-grid">
+        <div class="about-standard-block reveal">
+          <p class="section-kicker">Getting started</p>
+          <h2>Starting golf should be clearer.</h2>
+          <p>
+            Golf can be hard to read from the outside. What to book, where to check in, how to use the range, and what
+            is expected on the course are not always obvious when you are new.
+          </p>
+          <p>
+            The club has historically been informal, which has helped keep barriers low. The next step is better
+            introductions, clearer guidance, and a smoother route in for new golfers.
+          </p>
+        </div>
+        <div class="about-standard-block reveal reveal-delay-1">
+          <p class="section-kicker">Playing standards</p>
+          <h2>Welcoming does not mean careless.</h2>
+          <p>
+            Good golf culture is simple: look after the course, keep pace with the group in front, and show basic
+            respect to other players.
+          </p>
+          <p>
+            The aim is not to make the club stiff or intimidating. It is to make the course better for everyone who
+            plays it, from first rounds to weekly medals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container about-facilities-layout">
+        <div class="section-head reveal">
+          <p class="section-kicker">Golf facilities</p>
+          <h2>Useful, practical, golf-focused.</h2>
+          <p class="section-intro">
+            Facilities stay focused on playing and improving: practice, coaching, getting around the course, and a
+            practical clubhouse base.
+          </p>
+        </div>
+        <div class="about-row-list about-row-list-compact reveal reveal-delay-1">
+          <article>
+            <h3>Driving range</h3>
+            <p>Covered bays for warm-ups, practice, and lessons.</p>
+          </article>
+          <article>
+            <h3>Practice areas</h3>
+            <p>Short-game and putting spaces for simple, regular work.</p>
+          </article>
+          <article>
+            <h3>Coaching</h3>
+            <p>Support for beginners and players working on specific parts of their game.</p>
+          </article>
+          <article>
+            <h3>Buggy hire</h3>
+            <p>Available when course conditions and daily status allow.</p>
+          </article>
+          <article>
+            <h3>Clubhouse</h3>
+            <p>A base for check-in, food, drink, and time after the round.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-direction-section">
+      <div class="container course-endcap">
+        <div class="course-endcap-copy reveal">
+          <p class="section-kicker">The direction</p>
+          <h2>Keep the access. Improve the experience.</h2>
+          <p>
+            The direction is simple: keep the club open, accessible, and non-elitist, while making the everyday playing
+            experience clearer.
+          </p>
+          <p>
+            That means better onboarding, more consistent expectations, and playing standards that support the people
+            who use the course week after week.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://visitors.brsgolf.com/notleys#/course/1">
+              <span class="button-label">Book a Tee Time</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M7 2v4M17 2v4M4 9h16" />
+                  <rect x="4" y="5" width="16" height="15" rx="2" />
+                </svg>
+              </span>
+            </a>
+            <a class="button button-outline" href="course.html">
+              <span class="button-label">View the Course</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M6 3v18" />
+                  <path d="M6 4h11l-2 4 2 4H6" />
+                </svg>
+              </span>
+            </a>
+            <a class="button button-outline" href="facilities.html">
+              <span class="button-label">View Facilities</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M4 20V4" />
+                  <path d="M4 6h11l-2 4 2 4H4" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="course-endcap-media reveal reveal-delay-1">
+          <picture>
+            <source srcset="images/notleys-visitor-fairway-1200.webp" type="image/webp" />
+            <img src="images/notleys-visitor-fairway.jpg" alt="Open fairway at The Notleys Golf Club" width="1200"
+              height="900" loading="lazy" />
+          </picture>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2>The Notleys</h2>
+        <p>Witham Road, White Notley, Witham CM8 1ST</p>
+      </div>
+      <div>
+        <p>01376 329 328</p>
+        <p><a href="mailto:thenotleysgc@gmail.com">thenotleysgc@gmail.com</a></p>
+      </div>
+      <div>
+        <p><a href="index.html">Homepage</a></p>
+        <p><a href="course.html">Course Guide</a></p>
+        <p><a href="facilities.html">Facilities</a></p>
+        <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/main.js"></script>
+</body>
+
+</html>

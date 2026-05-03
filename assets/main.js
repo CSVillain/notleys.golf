@@ -18,6 +18,7 @@ const siteMenu = document.querySelector("#site-menu");
 const menuLinks = Array.from(document.querySelectorAll(".site-menu a"));
 const contactForm = document.querySelector("#contact-form");
 const contactStatus = document.querySelector("#contact-status");
+const facilitiesGrid = document.querySelector("[data-facilities-grid]");
 const captureSection = new URLSearchParams(window.location.search).get(
   "capture",
 );
@@ -721,6 +722,83 @@ const initialiseHoleViewer = () => {
   });
 };
 
+const initialiseFacilitiesGrid = () => {
+  if (!facilitiesGrid) {
+    return;
+  }
+
+  const items = Array.from(
+    facilitiesGrid.querySelectorAll("[data-facility-item]"),
+  );
+  let activeTrigger = null;
+
+  const closeExpandedFacility = ({ restoreFocus = true } = {}) => {
+    facilitiesGrid.classList.remove("has-expanded");
+
+    items.forEach((item) => {
+      item.classList.remove("is-expanded");
+
+      const trigger = item.querySelector(".facility-trigger");
+      const details = item.querySelector(".facility-details");
+
+      trigger?.setAttribute("aria-expanded", "false");
+      if (details) {
+        details.hidden = true;
+      }
+    });
+
+    if (restoreFocus) {
+      activeTrigger?.focus();
+    }
+
+    activeTrigger = null;
+  };
+
+  const openFacility = (item) => {
+    const trigger = item.querySelector(".facility-trigger");
+    const details = item.querySelector(".facility-details");
+    const closeButton = item.querySelector(".facility-close");
+
+    if (!trigger || !details) {
+      return;
+    }
+
+    closeExpandedFacility({ restoreFocus: false });
+
+    activeTrigger = trigger;
+    facilitiesGrid.classList.add("has-expanded");
+    item.classList.add("is-expanded");
+    trigger.setAttribute("aria-expanded", "true");
+    details.hidden = false;
+
+    item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    closeButton?.focus();
+  };
+
+  items.forEach((item) => {
+    const trigger = item.querySelector(".facility-trigger");
+    const closeButton = item.querySelector(".facility-close");
+
+    trigger?.addEventListener("click", () => {
+      if (item.classList.contains("is-expanded")) {
+        return;
+      }
+
+      openFacility(item);
+    });
+
+    closeButton?.addEventListener("click", () => {
+      closeExpandedFacility();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && facilitiesGrid.classList.contains("has-expanded")) {
+      closeExpandedFacility();
+    }
+  });
+};
+
 const initialiseReveal = () => {
   const targets = document.querySelectorAll(".reveal");
   if (!targets.length) return;
@@ -746,4 +824,5 @@ initialiseTheme();
 initialiseMenu();
 initialiseContactForm();
 initialiseHoleViewer();
+initialiseFacilitiesGrid();
 initialiseReveal();

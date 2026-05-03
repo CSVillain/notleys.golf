@@ -33,6 +33,7 @@
         <span class="site-brand-text">The Notleys Golf Club</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
+        <a href="about.html">About</a>
         <a href="course.html">Course</a>
         <a href="facilities.html">Facilities</a>
       </nav>
@@ -81,6 +82,7 @@
     <div class="site-menu" id="site-menu" hidden>
       <div class="container site-menu-inner">
         <nav class="site-menu-nav" aria-label="Mobile">
+          <a href="about.html">About</a>
           <a href="course.html">Course</a>
           <a href="facilities.html">Facilities</a>
           <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
@@ -158,72 +160,227 @@
             Facilities are available around daily course conditions, coaching schedules, and clubhouse opening times.
           </p>
         </div>
-        <div class="facilities-grid reveal reveal-delay-1">
-          <article class="facility-item">
-            <picture>
-              <source srcset="images/notleys-driving-range-bay-evening-1200.webp" type="image/webp" />
-              <img src="images/IMG_6653.JPEG" alt="Driving range bay at The Notleys Golf Club" width="1449"
-                height="1159" loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Driving range</h3>
-              <p>Warm-up and practice space before the round.</p>
+        <div class="facilities-grid reveal reveal-delay-1" data-facilities-grid>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-driving-range-details">
+              <picture>
+                <source srcset="images/notleys-driving-range-bay-evening-1200.webp" type="image/webp" />
+                <img src="images/IMG_6653.JPEG" alt="Driving range bay at The Notleys Golf Club" width="1449"
+                  height="1159" loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Driving range</span>
+                <span class="facility-summary">Warm-up and practice space before the round.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-driving-range-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Driving range</h3>
+                <p>
+                  Covered bays give you a straightforward place to warm up properly or spend time working on your swing
+                  without rushing.
+                </p>
+                <ul>
+                  <li>Ideal for pre-round warm-ups and dialling in longer clubs.</li>
+                  <li>Easy to combine with short-game practice in the same visit.</li>
+                  <li>Range balls are sold in 20-ball increments at 12.5p per ball.</li>
+                  <li>Example: 20 balls £2.50 / 40 balls £5.00 / 60 balls £7.50.</li>
+                  <li>Availability can vary around coaching sessions and daily conditions.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
-          <article class="facility-item">
-            <picture>
-              <img src="images/chipping-green.jpg" alt="Chipping practice area at The Notleys" width="1600" height="759"
-                loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Chipping green</h3>
-              <p>Dedicated short-game work close to the clubhouse side.</p>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-chipping-green-details">
+              <picture>
+                <img src="images/chipping-green.jpg" alt="Chipping practice area at The Notleys" width="1600"
+                  height="759" loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Chipping green</span>
+                <span class="facility-summary">Dedicated short-game work close to the clubhouse side.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-chipping-green-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Chipping green</h3>
+                <p>
+                  A simple, practical area for short-game work just a short walk from the clubhouse.
+                </p>
+                <ul>
+                  <li>Useful for chip-and-run, lofted shots, and landing control.</li>
+                  <li>Works well alongside the putting green for a full short-game routine.</li>
+                  <li>Maintained regularly, so access may vary during upkeep.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
-          <article class="facility-item">
-            <picture>
-              <source srcset="images/notleys-putting-green-900.webp" type="image/webp" />
-              <img src="images/notleys-putting-green-practice.jpg"
-                alt="Practice putting green beside the clubhouse at The Notleys" width="900" height="427"
-                loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Putting green</h3>
-              <p>A simple space for pace control and pre-round routines.</p>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-putting-green-details">
+              <picture>
+                <source srcset="images/notleys-putting-green-900.webp" type="image/webp" />
+                <img src="images/notleys-putting-green-practice.jpg"
+                  alt="Practice putting green beside the clubhouse at The Notleys" width="900" height="427"
+                  loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Putting green</span>
+                <span class="facility-summary">A simple space for pace control and pre-round routines.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-putting-green-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Putting green</h3>
+                <p>
+                  A calm space next to the clubhouse to get a feel for the greens before heading out.
+                </p>
+                <ul>
+                  <li>Best for pace control and short putting routines.</li>
+                  <li>Convenient for a quick warm-up before teeing off.</li>
+                  <li>Open alongside normal course preparation and weather conditions.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
-          <article class="facility-item">
-            <picture>
-              <source srcset="images/notleys-coaching-range-1200.webp" type="image/webp" />
-              <img src="images/golf-driving-range-braintree-witham-2.jpg"
-                alt="Driving range practice bays used for coaching at The Notleys" width="1600" height="759"
-                loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Coaching</h3>
-              <p>Support for improving golfers and regular practice sessions.</p>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-coaching-details">
+              <picture>
+                <source srcset="images/notleys-coaching-range-1200.webp" type="image/webp" />
+                <img src="images/golf-driving-range-braintree-witham-2.jpg"
+                  alt="Driving range practice bays used for coaching at The Notleys" width="1600" height="759"
+                  loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Coaching</span>
+                <span class="facility-summary">Support for improving golfers and regular practice sessions.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-coaching-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Coaching</h3>
+                <p>
+                  Golf lessons are available with our PGA-qualified Golf Professional, David Bugg.
+                </p>
+                <ul>
+                  <li>Individual 30-minute lesson: £30.</li>
+                  <li>Five 30-minute lessons: £120.</li>
+                  <li>Lesson vouchers are available.</li>
+                  <li>Equipment can be provided.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
-          <article class="facility-item">
-            <picture>
-              <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
-              <img src="images/wide-2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club" width="3582"
-                height="2687" loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Buggy hire</h3>
-              <p>Available when course conditions and daily status allow.</p>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-buggy-hire-details">
+              <picture>
+                <source srcset="images/wide-2026_buggies.webp" type="image/webp" />
+                <img src="images/wide-2026_buggies.jpg" alt="Golf buggies available at The Notleys Golf Club"
+                  width="3582" height="2687" loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Buggy hire</span>
+                <span class="facility-summary">Available when course conditions and daily status allow.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-buggy-hire-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Buggy hire</h3>
+                <p>
+                  Single-seater buggies are available for £25, subject to course conditions and daily availability.
+                </p>
+                <ul>
+                  <li>Single-seater only due to bridges and the railway tunnel on the course.</li>
+                  <li>Up to 15 may be available, but numbers can vary.</li>
+                  <li>Best arranged in advance, especially during busy periods.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
-          <article class="facility-item">
-            <picture>
-              <source srcset="images/notleys-clubhouse-deck-view-1200.webp" type="image/webp" />
-              <img src="images/IMG_4748.JPEG" alt="View from the clubhouse deck at The Notleys Golf Club" width="1536"
-                height="2048" loading="lazy" />
-            </picture>
-            <div class="facility-copy">
-              <h3>Clubhouse</h3>
-              <p>A practical base for check-in, food, drink, and post-round time.</p>
+          <article class="facility-item" data-facility-item>
+            <button class="facility-trigger" type="button" aria-expanded="false"
+              aria-controls="facility-clubhouse-details">
+              <picture>
+                <source srcset="images/notleys-clubhouse-deck-view-1200.webp" type="image/webp" />
+                <img src="images/IMG_4748.JPEG" alt="View from the clubhouse deck at The Notleys Golf Club"
+                  width="1536" height="2048" loading="lazy" />
+              </picture>
+              <span class="facility-copy">
+                <span class="facility-title">Clubhouse</span>
+                <span class="facility-summary">A practical base for check-in, food, drink, and post-round time.</span>
+              </span>
+            </button>
+            <div class="facility-details" id="facility-clubhouse-details" hidden>
+              <div class="facility-details-copy">
+                <h3>Clubhouse</h3>
+                <p>
+                  The clubhouse is open to visitors, members, and guests before and after a round.
+                </p>
+                <ul>
+                  <li>All visitors must check in before starting their round.</li>
+                  <li>Food and drink available to all.</li>
+                  <li>Terraced seating with views of the 18th green and the valley.</li>
+                  <li>Opening times vary by season, with summer hours typically 7am–10pm.</li>
+                </ul>
+              </div>
+              <button class="facility-close button button-secondary" type="button">
+                <span class="button-label">Show all facilities</span>
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </article>
         </div>
@@ -243,6 +400,7 @@
       </div>
       <div>
         <p><a href="index.html">Homepage</a></p>
+        <p><a href="about.html">About</a></p>
         <p><a href="course.html">Course Guide</a></p>
         <a href="https://visitors.brsgolf.com/notleys#/course/1">Book a Tee Time</a>
       </div>
