@@ -68,7 +68,7 @@ test.describe("homepage", () => {
     await page.goto("/facilities.html");
 
     await expect(
-      page.getByRole("heading", { name: "Practice and Clubhouse" }),
+      page.getByRole("heading", { name: "Course Facilities" }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Buggy hire" }),
@@ -78,6 +78,54 @@ test.describe("homepage", () => {
         name: "Golf buggies available at The Notleys Golf Club",
       }),
     ).toBeVisible();
+  });
+
+  test("loads course page imagery without broken requests", async ({ page }) => {
+    const failedCourseAssets: string[] = [];
+
+    page.on("response", (response) => {
+      const url = response.url();
+      if (
+        response.status() >= 400 &&
+        (url.includes("/images/") || url.includes("/scraped-assets/"))
+      ) {
+        failedCourseAssets.push(`${response.status()} ${url}`);
+      }
+    });
+
+    await page.goto("/course.html", { waitUntil: "networkidle" });
+
+    await expect(
+      page.getByRole("img", {
+        name: "Course fairway across The Notleys Golf Club",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("img", {
+        name: "Illustrated course map for The Notleys Golf Club",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("img", { name: "Hole 1 diagram at The Notleys Golf Club" }),
+    ).toBeVisible();
+
+    for (const hole of ["10", "18"]) {
+      await page.getByRole("tab", { name: hole, exact: true }).click();
+      await expect(
+        page.getByRole("img", {
+          name: `Hole ${hole} diagram at The Notleys Golf Club`,
+        }),
+      ).toBeVisible();
+    }
+
+    const brokenImages = await page.evaluate(() =>
+      Array.from(document.images)
+        .filter((image) => image.complete && image.naturalWidth === 0)
+        .map((image) => image.currentSrc || image.src),
+    );
+
+    expect(failedCourseAssets).toEqual([]);
+    expect(brokenImages).toEqual([]);
   });
 
   test("shows contact relay configuration warning when endpoint is not configured", async ({
@@ -229,7 +277,7 @@ test.describe("homepage", () => {
     ).toBe(false);
     expect(
       Array.from(loadedUrls).some((url) =>
-        url.includes("notleys-green-approach"),
+        url.includes("clubhouse-view"),
       ),
     ).toBe(true);
   });

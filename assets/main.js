@@ -653,7 +653,7 @@ const initialiseHoleViewer = () => {
 
     img.classList.add("transitioning");
     setTimeout(() => {
-      img.src = `scraped-assets/notleysgolfclub.co.uk-uploads/Notleys-Golf-Club-Hole-${n}.jpg`;
+      img.src = `images/Notleys-Golf-Club-Hole-${n}.jpg`;
       img.alt = `Hole ${n} diagram at The Notleys Golf Club`;
       img.classList.remove("transitioning");
     }, 180);
