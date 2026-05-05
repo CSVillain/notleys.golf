@@ -92,7 +92,10 @@ updateOnlineStatus();
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
-      await navigator.serviceWorker.register("/sw.js");
+      const registration = await navigator.serviceWorker.register("/sw.js", {
+        updateViaCache: "none",
+      });
+      await registration.update();
       console.log("Service worker registered");
     } catch (error) {
       console.log("Service worker registration failed:", error);
