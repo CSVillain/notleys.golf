@@ -1,6 +1,3 @@
-// Main script loaded
-console.log("Main script loaded and executing");
-
 const statusGrid = document.querySelector("#status-grid");
 const newsGrid = document.querySelector("#news-grid");
 const themeToggles = Array.from(
@@ -96,9 +93,8 @@ const registerServiceWorker = async () => {
         updateViaCache: "none",
       });
       await registration.update();
-      console.log("Service worker registered");
     } catch (error) {
-      console.log("Service worker registration failed:", error);
+      console.error("Service worker registration failed:", error);
     }
   }
 };
@@ -223,12 +219,6 @@ const initialiseMenu = () => {
   // Handle window resize
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 1100) {
-      closeMenu();
-    }
-  });
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
       closeMenu();
     }
   });
@@ -514,6 +504,14 @@ const buildStatusItems = (data) => {
   return items;
 };
 
+const escapeHtml = (str) =>
+  String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 const renderStatus = (data) => {
   const items = buildStatusItems(data);
 
@@ -523,10 +521,10 @@ const renderStatus = (data) => {
 
       return `
         <article class="status-card">
-          <span class="status-card-label">${label}</span>
+          <span class="status-card-label">${escapeHtml(label)}</span>
           <span class="status-card-value">
-            <span class="status-dot status-${tone}"></span>
-            <span>${displayValue}</span>
+            <span class="status-dot status-${escapeHtml(tone)}"></span>
+            <span>${escapeHtml(displayValue)}</span>
           </span>
         </article>
       `;
@@ -549,14 +547,14 @@ const renderNews = (items) => {
           <summary>
             <span class="update-summary-copy">
               <span class="update-date">${formatDate(item.date)}</span>
-              <span class="update-title">${item.title}</span>
+              <span class="update-title">${escapeHtml(item.title)}</span>
             </span>
             <span class="update-toggle" aria-hidden="true">
               <span class="update-toggle-read">Read update</span>
               <span class="update-toggle-close">Close update</span>
             </span>
           </summary>
-          <p>${item.summary}</p>
+          <p>${escapeHtml(item.summary)}</p>
         </details>
       `,
     )
@@ -564,7 +562,6 @@ const renderNews = (items) => {
 };
 
 const loadData = async () => {
-  console.log("loadData called");
   // Show loading states
   if (statusGrid) {
     statusGrid.innerHTML =
